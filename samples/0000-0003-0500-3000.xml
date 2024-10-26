@@ -1,0 +1,1150 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<record:record xmlns:address="http://www.orcid.org/ns/address" xmlns:email="http://www.orcid.org/ns/email" xmlns:history="http://www.orcid.org/ns/history" xmlns:employment="http://www.orcid.org/ns/employment" xmlns:education="http://www.orcid.org/ns/education" xmlns:other-name="http://www.orcid.org/ns/other-name" xmlns:deprecated="http://www.orcid.org/ns/deprecated" xmlns:funding="http://www.orcid.org/ns/funding" xmlns:research-resource="http://www.orcid.org/ns/research-resource" xmlns:service="http://www.orcid.org/ns/service" xmlns:researcher-url="http://www.orcid.org/ns/researcher-url" xmlns:distinction="http://www.orcid.org/ns/distinction" xmlns:internal="http://www.orcid.org/ns/internal" xmlns:membership="http://www.orcid.org/ns/membership" xmlns:person="http://www.orcid.org/ns/person" xmlns:personal-details="http://www.orcid.org/ns/personal-details" xmlns:bulk="http://www.orcid.org/ns/bulk" xmlns:common="http://www.orcid.org/ns/common" xmlns:record="http://www.orcid.org/ns/record" xmlns:keyword="http://www.orcid.org/ns/keyword" xmlns:activities="http://www.orcid.org/ns/activities" xmlns:qualification="http://www.orcid.org/ns/qualification" xmlns:external-identifier="http://www.orcid.org/ns/external-identifier" xmlns:error="http://www.orcid.org/ns/error" xmlns:preferences="http://www.orcid.org/ns/preferences" xmlns:invited-position="http://www.orcid.org/ns/invited-position" xmlns:work="http://www.orcid.org/ns/work" xmlns:peer-review="http://www.orcid.org/ns/peer-review" path="/0000-0003-0500-3000">
+    <common:orcid-identifier>
+        <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+        <common:path>0000-0003-0500-3000</common:path>
+        <common:host>orcid.org</common:host>
+    </common:orcid-identifier>
+    <preferences:preferences>
+        <preferences:locale>ru</preferences:locale>
+    </preferences:preferences>
+    <history:history>
+        <history:creation-method>Direct</history:creation-method>
+        <history:submission-date>2018-03-14T18:01:31.210Z</history:submission-date>
+        <common:last-modified-date>2024-06-14T17:43:26.213Z</common:last-modified-date>
+        <history:claimed>true</history:claimed>
+        <history:verified-email>true</history:verified-email>
+        <history:verified-primary-email>true</history:verified-primary-email>
+    </history:history>
+    <person:person path="/0000-0003-0500-3000/person">
+        <common:last-modified-date>2020-02-21T08:53:09.720Z</common:last-modified-date>
+        <person:name visibility="public" path="0000-0003-0500-3000">
+            <common:created-date>2018-03-14T18:01:31.210Z</common:created-date>
+            <common:last-modified-date>2018-03-14T18:01:31.443Z</common:last-modified-date>
+            <personal-details:given-names>Aleks Shtepa</personal-details:given-names>
+        </person:name>
+        <other-name:other-names path="/0000-0003-0500-3000/other-names">
+            <common:last-modified-date>2020-02-20T11:28:23.600Z</common:last-modified-date>
+            <other-name:other-name put-code="1366824" visibility="public" path="/0000-0003-0500-3000/other-names/1366824" display-index="1">
+                <common:created-date>2020-02-20T11:28:23.600Z</common:created-date>
+                <common:last-modified-date>2020-02-20T11:28:23.600Z</common:last-modified-date>
+                <common:source>
+                    <common:source-orcid>
+                        <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                        <common:path>0000-0003-0500-3000</common:path>
+                        <common:host>orcid.org</common:host>
+                    </common:source-orcid>
+                    <common:source-name>Aleks Shtepa</common:source-name>
+                </common:source>
+                <other-name:content>Штепа Олексый Олександрович, Штепа Алексей Александрович, Штепа О. О., Штепа О., Штепа О. О., Штепа А. А., Штепа А.</other-name:content>
+            </other-name:other-name>
+        </other-name:other-names>
+        <researcher-url:researcher-urls path="/0000-0003-0500-3000/researcher-urls">
+            <common:last-modified-date>2020-02-21T08:53:09.720Z</common:last-modified-date>
+            <researcher-url:researcher-url put-code="1970198" visibility="public" path="/0000-0003-0500-3000/researcher-urls/1970198" display-index="1">
+                <common:created-date>2020-02-21T08:53:09.720Z</common:created-date>
+                <common:last-modified-date>2020-02-21T08:53:09.720Z</common:last-modified-date>
+                <common:source>
+                    <common:source-orcid>
+                        <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                        <common:path>0000-0003-0500-3000</common:path>
+                        <common:host>orcid.org</common:host>
+                    </common:source-orcid>
+                    <common:source-name>Aleks Shtepa</common:source-name>
+                </common:source>
+                <researcher-url:url-name>GoogleShoolar</researcher-url:url-name>
+                <researcher-url:url>https://scholar.google.com.ua/citations?hl=uk&amp;user=aADHHKMAAAAJ&amp;view_op=list_works&amp;gmla=AJsN-F5dhUG93Fj8rBf6vrCFiS7ILT-nLWL0gyy6u5ErKRfwTmVz7Ul_nb4yeZBdsRgv33JzmJWjcVl8US7-GrXpndgq6A5ggGS_R_aR0MdYq-uS_g4jMfQ</researcher-url:url>
+            </researcher-url:researcher-url>
+        </researcher-url:researcher-urls>
+        <email:emails path="/0000-0003-0500-3000/email"/>
+        <address:addresses path="/0000-0003-0500-3000/address">
+            <common:last-modified-date>2020-02-20T11:28:39.788Z</common:last-modified-date>
+            <address:address put-code="1530165" visibility="public" path="/0000-0003-0500-3000/address/1530165" display-index="1">
+                <common:created-date>2020-02-20T11:28:39.788Z</common:created-date>
+                <common:last-modified-date>2020-02-20T11:28:39.788Z</common:last-modified-date>
+                <common:source>
+                    <common:source-orcid>
+                        <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                        <common:path>0000-0003-0500-3000</common:path>
+                        <common:host>orcid.org</common:host>
+                    </common:source-orcid>
+                    <common:source-name>Aleks Shtepa</common:source-name>
+                </common:source>
+                <address:country>UA</address:country>
+            </address:address>
+        </address:addresses>
+        <keyword:keywords path="/0000-0003-0500-3000/keywords">
+            <common:last-modified-date>2020-02-20T11:29:22.004Z</common:last-modified-date>
+            <keyword:keyword put-code="1498577" visibility="public" path="/0000-0003-0500-3000/keywords/1498577" display-index="1">
+                <common:created-date>2020-02-20T11:29:22.004Z</common:created-date>
+                <common:last-modified-date>2020-02-20T11:29:22.004Z</common:last-modified-date>
+                <common:source>
+                    <common:source-orcid>
+                        <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                        <common:path>0000-0003-0500-3000</common:path>
+                        <common:host>orcid.org</common:host>
+                    </common:source-orcid>
+                    <common:source-name>Aleks Shtepa</common:source-name>
+                </common:source>
+                <keyword:content>Соціальна філософія, філософія права, теорія ментальності</keyword:content>
+            </keyword:keyword>
+        </keyword:keywords>
+        <external-identifier:external-identifiers path="/0000-0003-0500-3000/external-identifiers"/>
+    </person:person>
+    <activities:activities-summary path="/0000-0003-0500-3000/activities">
+        <common:last-modified-date>2024-06-14T17:43:26.344Z</common:last-modified-date>
+        <activities:distinctions path="/0000-0003-0500-3000/distinctions"/>
+        <activities:educations path="/0000-0003-0500-3000/educations">
+            <common:last-modified-date>2019-12-11T01:43:45.152Z</common:last-modified-date>
+            <activities:affiliation-group>
+                <common:last-modified-date>2019-12-11T01:43:45.152Z</common:last-modified-date>
+                <common:external-ids/>
+                <education:education-summary put-code="5528674" display-index="0" path="/0000-0003-0500-3000/education/5528674" visibility="public">
+                    <common:created-date>2018-03-14T18:08:02.603Z</common:created-date>
+                    <common:last-modified-date>2019-12-11T01:43:45.152Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <common:start-date>
+                        <common:year>2000</common:year>
+                        <common:month>09</common:month>
+                        <common:day>01</common:day>
+                    </common:start-date>
+                    <common:end-date>
+                        <common:year>2006</common:year>
+                        <common:month>06</common:month>
+                        <common:day>19</common:day>
+                    </common:end-date>
+                    <common:organization>
+                        <common:name>Poltava V.G. Korolenko National Pedagogical University</common:name>
+                        <common:address>
+                            <common:city>Poltava</common:city>
+                            <common:country>UA</common:country>
+                        </common:address>
+                        <common:disambiguated-organization>
+                            <common:disambiguated-organization-identifier>grid.445982.6</common:disambiguated-organization-identifier>
+                            <common:disambiguation-source>GRID</common:disambiguation-source>
+                        </common:disambiguated-organization>
+                    </common:organization>
+                </education:education-summary>
+            </activities:affiliation-group>
+        </activities:educations>
+        <activities:employments path="/0000-0003-0500-3000/employments"/>
+        <activities:fundings path="/0000-0003-0500-3000/fundings"/>
+        <activities:invited-positions path="/0000-0003-0500-3000/invited-positions"/>
+        <activities:memberships path="/0000-0003-0500-3000/memberships"/>
+        <activities:peer-reviews path="/0000-0003-0500-3000/peer-reviews"/>
+        <activities:qualifications path="/0000-0003-0500-3000/qualifications"/>
+        <activities:research-resources path="/0000-0003-0500-3000/research-resources"/>
+        <activities:services path="/0000-0003-0500-3000/services"/>
+        <activities:works path="/0000-0003-0500-3000/works">
+            <common:last-modified-date>2024-06-14T17:43:26.344Z</common:last-modified-date>
+            <activities:group>
+                <common:last-modified-date>2024-06-14T17:43:26.344Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.30888/2709-2267.2024-23-00-029</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.30888/2709-2267.2024-23-00-029</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.30888/2709-2267.2024-23-00-029</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="161618065" path="/0000-0003-0500-3000/work/161618065" visibility="public" display-index="0">
+                    <common:created-date>2024-06-14T17:43:26.344Z</common:created-date>
+                    <common:last-modified-date>2024-06-14T17:43:26.344Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>STEREOTYPES OF THE STATE AND THE LAW IN THE POLITICAL AND LEGAL MENTALITY OF THE UKRAINIAN ETHNOSIS</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.30888/2709-2267.2024-23-00-029</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.30888/2709-2267.2024-23-00-029</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.30888/2709-2267.2024-23-00-029</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.30888/2709-2267.2024-23-00-029</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>03</common:month>
+                        <common:day>30</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Sworld-Us Conference proceedings</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-04-21T18:06:06.665Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.24919/2308-4863/72-1-54</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.24919/2308-4863/72-1-54</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.24919/2308-4863/72-1-54</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="158134111" path="/0000-0003-0500-3000/work/158134111" visibility="public" display-index="0">
+                    <common:created-date>2024-04-21T18:06:06.665Z</common:created-date>
+                    <common:last-modified-date>2024-04-21T18:06:06.665Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>THE PROBLEM OF APPLICATION OF EDUCATIONAL GAME TECHNOLOGIES DURING SOCIAL SCIENCE DISCIPLINES IN HIGHER EDUCATION INSTITUTIONS</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.24919/2308-4863/72-1-54</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.24919/2308-4863/72-1-54</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.24919/2308-4863/72-1-54</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.24919/2308-4863/72-1-54</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Humanities science current issues</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-01-11T20:52:04.626Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>wosuid</common:external-id-type>
+                        <common:external-id-value>WOS:000952917300023</common:external-id-value>
+                        <common:external-id-normalized transient="true">wos:000952917300023</common:external-id-normalized>
+                        <common:external-id-url>https://www.webofscience.com/api/gateway?GWVersion=2&amp;SrcApp=Publons&amp;SrcAuth=Publons_CEL&amp;KeyUT=WOS:000952917300023&amp;DestLinkType=FullRecord&amp;DestApp=WOS_CPL</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.46398/cuestpol.4176.22</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.46398/cuestpol.4176.22</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.46398/cuestpol.4176.22</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="131562841" path="/0000-0003-0500-3000/work/131562841" visibility="public" display-index="0">
+                    <common:created-date>2023-03-25T15:10:59.252Z</common:created-date>
+                    <common:last-modified-date>2023-03-25T15:10:59.252Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Socio-philosophical analysis of Ukrainian legal mentality in the context of European integration processes</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.46398/cuestpol.4176.22</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.46398/cuestpol.4176.22</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.46398/cuestpol.4176.22</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.46398/cuestpol.4176.22</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>03</common:month>
+                        <common:day>06</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Cuestiones Políticas</work:journal-title>
+                </work:work-summary>
+                <work:work-summary put-code="150499885" path="/0000-0003-0500-3000/work/150499885" visibility="public" display-index="0">
+                    <common:created-date>2024-01-11T20:52:04.626Z</common:created-date>
+                    <common:last-modified-date>2024-01-11T20:52:04.626Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/APP-1DSJAQCZ1PW1VN5X</common:uri>
+                            <common:path>APP-1DSJAQCZ1PW1VN5X</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Web of Science Researcher Profile Sync</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Socio-philosophical analysis of Ukrainian legal mentality in the context of European integration processes</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.46398/CUESTPOL.4176.22</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.46398/cuestpol.4176.22</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.46398/CUESTPOL.4176.22</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                        <common:external-id>
+                            <common:external-id-type>wosuid</common:external-id-type>
+                            <common:external-id-value>WOS:000952917300023</common:external-id-value>
+                            <common:external-id-normalized transient="true">wos:000952917300023</common:external-id-normalized>
+                            <common:external-id-url>https://www.webofscience.com/api/gateway?GWVersion=2&amp;SrcApp=Publons&amp;SrcAuth=Publons_CEL&amp;KeyUT=WOS:000952917300023&amp;DestLinkType=FullRecord&amp;DestApp=WOS_CPL</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://publons.com/wos-op/publon/59742394/</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Cuestiones Politicas</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-05-30T15:05:46.576Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.30890/2709-2313.2024-27-00-012</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.30890/2709-2313.2024-27-00-012</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.30890/2709-2313.2024-27-00-012</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="160596461" path="/0000-0003-0500-3000/work/160596461" visibility="public" display-index="0">
+                    <common:created-date>2024-05-30T15:05:46.576Z</common:created-date>
+                    <common:last-modified-date>2024-05-30T15:05:46.576Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>REFORMIST IDEAS OF FRENCH PHILOSOPHY: LATE TWENTIETH TO EARLY TWENTY-FIRST CENTURY</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.30890/2709-2313.2024-27-00-012</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.30890/2709-2313.2024-27-00-012</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.30890/2709-2313.2024-27-00-012</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.30890/2709-2313.2024-27-00-012</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>02</common:month>
+                        <common:day>28</common:day>
+                    </common:publication-date>
+                    <work:journal-title>European Science</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-09-19T23:37:55.501Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.24919/2308-4863/65-3-52</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.24919/2308-4863/65-3-52</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.24919/2308-4863/65-3-52</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="142653985" path="/0000-0003-0500-3000/work/142653985" visibility="public" display-index="0">
+                    <common:created-date>2023-09-19T23:37:55.501Z</common:created-date>
+                    <common:last-modified-date>2023-09-19T23:37:55.501Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>THE PROBLEM OF APPLICATION OF DISTANCE EDUCATION TECHNOLOGIES DURING SOCIAL SCIENCE DISCIPLINES IN HIGHER EDUCATION INSTITUTIONS</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.24919/2308-4863/65-3-52</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.24919/2308-4863/65-3-52</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.24919/2308-4863/65-3-52</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.24919/2308-4863/65-3-52</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Humanities science current issues</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-10-12T23:00:06.937Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.24919/2308-4863/66-3-42</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.24919/2308-4863/66-3-42</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.24919/2308-4863/66-3-42</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="144301491" path="/0000-0003-0500-3000/work/144301491" visibility="public" display-index="0">
+                    <common:created-date>2023-10-12T23:00:06.937Z</common:created-date>
+                    <common:last-modified-date>2023-10-12T23:00:06.937Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>THE PROBLEM OF APPLICATION OF DISTANCE EDUCATION TECHNOLOGIES DURING SOCIAL SCIENCE DISCIPLINES IN HIGHER EDUCATION INSTITUTIONS</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.24919/2308-4863/66-3-42</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.24919/2308-4863/66-3-42</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.24919/2308-4863/66-3-42</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.24919/2308-4863/66-3-42</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Humanities science current issues</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-04-11T21:09:41.333Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.32782/apfs.v045.2023.14</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.32782/apfs.v045.2023.14</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.32782/apfs.v045.2023.14</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="157459927" path="/0000-0003-0500-3000/work/157459927" visibility="public" display-index="0">
+                    <common:created-date>2024-04-11T21:09:41.333Z</common:created-date>
+                    <common:last-modified-date>2024-04-11T21:09:41.333Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Time as a factor in the formation of stereotypes of the Ukrainian political and legal mentality: socio-philosophical analysis</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.32782/apfs.v045.2023.14</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.32782/apfs.v045.2023.14</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.32782/apfs.v045.2023.14</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.32782/apfs.v045.2023.14</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Актуальні проблеми філософії та соціології</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-03-21T12:50:13.104Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.32782/apfs.v039.2022.18</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.32782/apfs.v039.2022.18</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.32782/apfs.v039.2022.18</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="131267144" path="/0000-0003-0500-3000/work/131267144" visibility="public" display-index="0">
+                    <common:created-date>2023-03-21T12:50:13.104Z</common:created-date>
+                    <common:last-modified-date>2023-03-21T12:50:13.104Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>European values as a factor in the transformation of the legal mentality of the Ukrainian ethnic group: state-building discourse</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.32782/apfs.v039.2022.18</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.32782/apfs.v039.2022.18</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.32782/apfs.v039.2022.18</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.32782/apfs.v039.2022.18</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Актуальні проблеми філософії та соціології</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-11-28T15:32:40.628Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.24919/2308-4863/54-2-49</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.24919/2308-4863/54-2-49</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.24919/2308-4863/54-2-49</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="123688704" path="/0000-0003-0500-3000/work/123688704" visibility="public" display-index="0">
+                    <common:created-date>2022-11-28T15:32:40.628Z</common:created-date>
+                    <common:last-modified-date>2022-11-28T15:32:40.628Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>FEATURES OF THE APPLICATION OF LECTURE CLASSES DURING THE STUDY OF SOCIAL SCIENCE DISCIPLINES IN INSTITUTIONS OF HIGHER EDUCATION</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.24919/2308-4863/54-2-49</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.24919/2308-4863/54-2-49</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.24919/2308-4863/54-2-49</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.24919/2308-4863/54-2-49</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Humanities science current issues</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-11-28T15:32:40.867Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.24919/2308-4863/55-3-48</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.24919/2308-4863/55-3-48</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.24919/2308-4863/55-3-48</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="123688706" path="/0000-0003-0500-3000/work/123688706" visibility="public" display-index="0">
+                    <common:created-date>2022-11-28T15:32:40.867Z</common:created-date>
+                    <common:last-modified-date>2022-11-28T15:32:40.867Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>FEATURES OF THE APPLICATION OF SEMINAR CLASSES DURING THE STUDY OF SOCIAL SCIENCES AND PHILOSOPHICAL DISCIPLINES IN INSTITUTIONS OF HIGHER EDUCATION</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.24919/2308-4863/55-3-48</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.24919/2308-4863/55-3-48</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.24919/2308-4863/55-3-48</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.24919/2308-4863/55-3-48</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Humanities science current issues</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-02-14T07:14:13.126Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.32782/apfs.v038.2022.8</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.32782/apfs.v038.2022.8</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.32782/apfs.v038.2022.8</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="128697991" path="/0000-0003-0500-3000/work/128697991" visibility="public" display-index="0">
+                    <common:created-date>2023-02-14T07:14:13.126Z</common:created-date>
+                    <common:last-modified-date>2023-02-14T07:14:13.126Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Intangible values as a factor in the transformation of the national legal mentality: socio-philosophical discourse</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.32782/apfs.v038.2022.8</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.32782/apfs.v038.2022.8</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.32782/apfs.v038.2022.8</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.32782/apfs.v038.2022.8</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Актуальні проблеми філософії та соціології</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:49:01.168Z</common:last-modified-date>
+                <common:external-ids/>
+                <work:work-summary put-code="69381000" path="/0000-0003-0500-3000/work/69381000" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:49:01.168Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:01.168Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Правова ментальність українського етносу як чинник сучасного вітчизняного державотворення</common:title>
+                    </work:title>
+                    <common:external-ids/>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2019</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-20T11:42:23.932Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>uri</common:external-id-type>
+                        <common:external-id-value>http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/12603</common:external-id-value>
+                        <common:external-id-normalized transient="true">http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/12603</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="69317220" path="/0000-0003-0500-3000/work/69317220" visibility="public" display-index="1">
+                    <common:created-date>2020-02-20T11:42:23.932Z</common:created-date>
+                    <common:last-modified-date>2020-02-20T11:42:23.932Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Stress genesis factors in legal mentality of Ukrainian ethnos in the public discourse ; Факторы стрессогенеза правовой ментальности украинского этноса в государственном дискурсе ; Чинники стресогенезу правової ментальності українського етносу в державотворчому дискурсі</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/12603</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/12603</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/12603</common:url>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:49:21.784Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>uri</common:external-id-type>
+                        <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-value>
+                        <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="69317108" path="/0000-0003-0500-3000/work/69317108" visibility="public" display-index="1">
+                    <common:created-date>2020-02-20T11:40:40.815Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:21.768Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Народна педагогіка та проблема формування архетипів правової ментальності українського етносу</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>http://dspace.pnpu.edu.ua/handle/123456789/10550</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+                <work:work-summary put-code="69381022" path="/0000-0003-0500-3000/work/69381022" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:49:02.456Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:21.784Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Народна педагогіка та проблема формування архетипів правової ментальності українського етносу</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+                <work:work-summary put-code="69381034" path="/0000-0003-0500-3000/work/69381034" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:49:05.394Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:21.774Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Народна педагогіка та проблема формування архетипів правової ментальності українського етносу</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+                <work:work-summary put-code="69381067" path="/0000-0003-0500-3000/work/69381067" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:49:08.838Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:21.780Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Народна педагогіка та проблема формування архетипів правової ментальності українського етносу</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10550</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-20T11:42:00.188Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>uri</common:external-id-type>
+                        <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10047</common:external-id-value>
+                        <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10047</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="69317206" path="/0000-0003-0500-3000/work/69317206" visibility="public" display-index="1">
+                    <common:created-date>2020-02-20T11:42:00.188Z</common:created-date>
+                    <common:last-modified-date>2020-02-20T11:42:00.188Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Уявлення про злочин та покарання в правовій ментальності українського етносу: соціально-філософський аналіз</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/10047</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/10047</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>http://dspace.pnpu.edu.ua/handle/123456789/10047</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:48:58.681Z</common:last-modified-date>
+                <common:external-ids/>
+                <work:work-summary put-code="69380986" path="/0000-0003-0500-3000/work/69380986" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:48:58.681Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:48:58.681Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Правова ментальність українського етносу в класовому вимірі: державотворчий аспект</common:title>
+                    </work:title>
+                    <common:external-ids/>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2017</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Гілея: науковий вісник</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:48:52.919Z</common:last-modified-date>
+                <common:external-ids/>
+                <work:work-summary put-code="69380948" path="/0000-0003-0500-3000/work/69380948" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:48:52.919Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:48:52.919Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>ПОЛІТИЧНІ РЕПРЕСІЇ СТАЛІНСЬКОГО РЕЖИМУ ЯК ЧИННИК СТРЕСОГЕНЕЗУ УКРАЇНСЬКОЇ ПРАВОВОЇ МЕНТАЛЬНОСТІ</common:title>
+                    </work:title>
+                    <common:external-ids/>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2016</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Автори опублікованих матеріалів несуть повну відповідальність за підбір і точність наведених фактів, цитат та інших відомостей.</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-20T11:42:16.333Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>uri</common:external-id-type>
+                        <common:external-id-value>http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/10731</common:external-id-value>
+                        <common:external-id-normalized transient="true">http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/10731</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="69317214" path="/0000-0003-0500-3000/work/69317214" visibility="public" display-index="1">
+                    <common:created-date>2020-02-20T11:42:16.333Z</common:created-date>
+                    <common:last-modified-date>2020-02-20T11:42:16.333Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>LEGAL MENTALITY OF UKRAINIANS ETHNICITY OF COSSACK ERA AS A FAKTOR OF NATIONAL STATE BUILDING ; ПРАВОВАЯ МЕНТАЛЬНОСТЬ УКРАИНСКОГО ЭТНОСА ЭПОХИ КАЗАЧЕСТВА КАК ФАКТОР ОТЕЧЕСТВЕННОГО ГОСУДАРСТВООБРАЗОВАНИЯ ; ПРАВОВА МЕНТАЛЬНІСТЬ УКРАЇНСЬКОГО ЕТНОСУ ДОБИ КОЗАЦТВА ЯК ЧИННИК ВІТЧИЗНЯНОГО ДЕРЖАВОТВОРЕННЯ</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/10731</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/10731</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>http://jrnl.nau.edu.ua/index.php/VisnikPK/article/view/10731</common:url>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2015</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:48:55.794Z</common:last-modified-date>
+                <common:external-ids/>
+                <work:work-summary put-code="69380970" path="/0000-0003-0500-3000/work/69380970" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:48:55.794Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:48:55.794Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Правова ментальність українського етносу доби козацтва як чинник вітчизняного державотворення</common:title>
+                    </work:title>
+                    <common:external-ids/>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2015</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Вісник Національного Авіаційного Університету. Серія: Філософія. Культурологія</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:49:21.717Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>uri</common:external-id-type>
+                        <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/2622</common:external-id-value>
+                        <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/2622</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="69317090" path="/0000-0003-0500-3000/work/69317090" visibility="public" display-index="1">
+                    <common:created-date>2020-02-20T11:40:12.297Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:21.706Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>До питання про сутність правової ментальності</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/2622</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/2622</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>http://dspace.pnpu.edu.ua/handle/123456789/2622</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2014</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+                <work:work-summary put-code="69380989" path="/0000-0003-0500-3000/work/69380989" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:48:59.919Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:21.717Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>До питання про сутність правової ментальності</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://dspace.pnpu.edu.ua/handle/123456789/2622</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://dspace.pnpu.edu.ua/handle/123456789/2622</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2014</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Філософські обрії</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:49:07.023Z</common:last-modified-date>
+                <common:external-ids/>
+                <work:work-summary put-code="69381055" path="/0000-0003-0500-3000/work/69381055" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:49:07.023Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:49:07.023Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Правова ментальність давньоруського соціуму як чинник державотворення доби Київської Русі</common:title>
+                    </work:title>
+                    <common:external-ids/>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2014</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Мультиверсум. Філософський альманах</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-20T11:40:03.783Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>uri</common:external-id-type>
+                        <common:external-id-value>http://essuir.sumdu.edu.ua/handle/123456789/20023</common:external-id-value>
+                        <common:external-id-normalized transient="true">http://essuir.sumdu.edu.ua/handle/123456789/20023</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="69317084" path="/0000-0003-0500-3000/work/69317084" visibility="public" display-index="1">
+                    <common:created-date>2020-02-20T11:40:03.783Z</common:created-date>
+                    <common:last-modified-date>2020-02-20T11:40:03.783Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Суспільно-політичні та історико-правові дослідження членів Полтавської вченої архівної комісії</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>uri</common:external-id-type>
+                            <common:external-id-value>http://essuir.sumdu.edu.ua/handle/123456789/20023</common:external-id-value>
+                            <common:external-id-normalized transient="true">http://essuir.sumdu.edu.ua/handle/123456789/20023</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>http://essuir.sumdu.edu.ua/handle/123456789/20023</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2011</common:year>
+                    </common:publication-date>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2020-02-21T08:48:57.402Z</common:last-modified-date>
+                <common:external-ids/>
+                <work:work-summary put-code="69380971" path="/0000-0003-0500-3000/work/69380971" visibility="public" display-index="1">
+                    <common:created-date>2020-02-21T08:48:57.402Z</common:created-date>
+                    <common:last-modified-date>2020-02-21T08:48:57.402Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0003-0500-3000</common:uri>
+                            <common:path>0000-0003-0500-3000</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Aleks Shtepa</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Право власності як ментальний архетип українського етносу: соціально-філософський вимір</common:title>
+                    </work:title>
+                    <common:external-ids/>
+                    <work:type>journal-article</work:type>
+                    <work:journal-title>Теорія і практика актуальних наукових досліджень</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+        </activities:works>
+    </activities:activities-summary>
+</record:record>

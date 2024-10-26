@@ -1,4 +1,4 @@
-use anyhow::Result;
+use anyhow::{bail, Result};
 use chrono::Utc;
 use flate2::read::GzDecoder;
 use std::fs;
@@ -23,9 +23,9 @@ struct Identifier {
 #[derive(Debug, PartialEq, Default, Deserialize)]
 struct PersonName {
     #[serde(rename = "given-names")]
-    given_names: String,
+    given_names: Option<String>,
     #[serde(rename = "family-name")]
-    family_name: String,
+    family_name: Option<String>,
 }
 
 #[derive(Debug, PartialEq, Default, Deserialize)]
@@ -139,13 +139,46 @@ fn csv_line_from_record(record: &Record) -> Result<Row> {
             })
             .for_each(|n| affiliations.push(n));
     }
-    let name_json = NameJson {
-        given_name: &record.person.name.given_names,
-        family_name: &record.person.name.family_name,
-        name: &format!(
-            "{}, {}",
-            record.person.name.family_name, record.person.name.given_names
+
+    let (given_name, family_name, name) = match &record.person.name {
+        PersonName {
+            given_names: Some(given_names),
+            family_name: None,
+        } => {
+            if given_names.trim().len() > 0 {
+                (String::from(""), given_names.clone(), given_names.clone())
+            } else {
+                bail!("Can't determine person name")
+            }
+        }
+        PersonName {
+            given_names: Some(given_names),
+            family_name: Some(family_name),
+        } => (
+            given_names.clone(),
+            family_name.clone(),
+            format!("{}, {}", family_name, given_names),
         ),
+        PersonName {
+            given_names: None,
+            family_name: Some(family_name),
+        } => {
+            if family_name.trim().len() > 0 {
+                (String::from(""), family_name.clone(), family_name.clone())
+            } else {
+                bail!("Can't determine person name")
+            }
+        }
+        PersonName {
+            given_names: None,
+            family_name: None,
+        } => bail!("Can't determine person name"),
+    };
+
+    let name_json = NameJson {
+        given_name: given_name.as_str(),
+        family_name: family_name.as_str(),
+        name: name.as_str(),
         identifiers: vec![NameIdentifier {
             scheme: "orcid",
             identifier: &record.identifier.path,
