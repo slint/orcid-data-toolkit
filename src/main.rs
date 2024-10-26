@@ -9,7 +9,7 @@ use tar::Archive;
 
 use uuid::Uuid;
 
-use quick_xml::de::from_str;
+use quick_xml::de::Deserializer;
 use serde::Deserialize;
 
 #[derive(Debug, PartialEq, Default, Deserialize)]
@@ -45,7 +45,7 @@ struct OrgIdentifier {
 struct Organization {
     name: String,
     #[serde(alias = "disambiguated-organization")]
-    identifier: OrgIdentifier,
+    identifier: Option<OrgIdentifier>,
 }
 
 #[derive(Debug, PartialEq, Default, Deserialize)]
@@ -125,16 +125,10 @@ fn csv_line_from_record(record: &Record) -> Result<Row> {
             .filter_map(|a| match a.employment.end {
                 Some(_) => None,
                 None => {
-                    let ror_id = match a.employment.organization.identifier.source.as_str() {
-                        "ROR" => Some(
-                            a.employment
-                                .organization
-                                .identifier
-                                .identifier
-                                .as_str()
-                                .rsplit_once('/')?
-                                .1,
-                        ),
+                    let ror_id = match &a.employment.organization.identifier {
+                        Some(identifier) if identifier.source == "ROR" => {
+                            Some(identifier.identifier.as_str().rsplit_once('/')?.1)
+                        }
                         _ => None,
                     };
                     Some(NameAffiliation {
@@ -174,8 +168,15 @@ fn csv_line_from_record(record: &Record) -> Result<Row> {
 
 fn parse_xml(xml_path: &Path) -> Result<Record> {
     let xml: String = fs::read_to_string(xml_path)?.parse()?;
-    let record: Record = from_str(&xml)?;
-    Ok(record)
+    let rd = &mut Deserializer::from_str(&xml);
+    match serde_path_to_error::deserialize(rd) {
+        Ok(record) => Ok(record),
+        Err(err) => {
+            let err_path = err.path().to_string();
+            dbg!(err_path);
+            Err(err.into())
+        }
+    }
 }
 
 fn parse_tgz(tgz_path: &Path) -> Result<()> {
@@ -184,24 +185,72 @@ fn parse_tgz(tgz_path: &Path) -> Result<()> {
         .has_headers(false)
         .from_writer(stdout());
 
-    let file = File::open(tgz_path).unwrap();
+    let file = File::open(tgz_path).map_err(|e| {
+        eprintln!("Error opening file {}: {}", tgz_path.display(), e);
+        e
+    })?;
     let mut archive = Archive::new(GzDecoder::new(file));
     archive
-        .entries()?
-        .filter_map(|e| {
-            let entry = e.unwrap();
-            let path = entry.path().expect("No entry path");
-            match path.extension().and_then(OsStr::to_str) {
-                Some("xml") => Some(entry),
-                _ => None,
+        .entries()
+        .map_err(|e| {
+            eprintln!("Error reading archive entries: {}", e);
+            e
+        })?
+        .filter_map(|e| match e {
+            Ok(entry) => {
+                let path = match entry.path() {
+                    Ok(p) => p,
+                    Err(e) => {
+                        eprintln!("Error getting entry path: {}", e);
+                        return None;
+                    }
+                };
+                match path.extension().and_then(OsStr::to_str) {
+                    Some("xml") => Some(entry),
+                    _ => None,
+                }
+            }
+            Err(e) => {
+                eprintln!("Error reading archive entry: {}", e);
+                None
             }
         })
         .filter_map(|mut entry| -> Option<Record> {
             let mut xml_content = String::new();
-            entry.read_to_string(&mut xml_content).unwrap();
-            from_str(&xml_content).ok()
+            let path = entry
+                .path()
+                .ok()
+                .map(|p| p.display().to_string())
+                .unwrap_or_default();
+            if let Err(e) = entry.read_to_string(&mut xml_content) {
+                eprintln!("Error reading XML content for {}: {}", path, e);
+                return None;
+            }
+            let rd = &mut Deserializer::from_str(&xml_content);
+            match serde_path_to_error::deserialize(rd) {
+                Ok(record) => Some(record),
+                Err(err) => {
+                    eprintln!(
+                        "Error parsing XML content for {}: {}",
+                        path,
+                        err.path().to_string()
+                    );
+                    None
+                }
+            }
         })
-        .for_each(|r| writer.serialize(csv_line_from_record(&r).unwrap()).unwrap());
+        .for_each(|r| {
+            let record = match csv_line_from_record(&r) {
+                Ok(record) => record,
+                Err(e) => {
+                    eprintln!("Error converting record to CSV: {}", e);
+                    return;
+                }
+            };
+            if let Err(e) = writer.serialize(record) {
+                eprintln!("Error writing CSV line: {}", e);
+            }
+        });
     Ok(())
 }
 
