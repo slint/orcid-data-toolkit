@@ -1,0 +1,1470 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<record:record xmlns:address="http://www.orcid.org/ns/address" xmlns:email="http://www.orcid.org/ns/email" xmlns:history="http://www.orcid.org/ns/history" xmlns:employment="http://www.orcid.org/ns/employment" xmlns:education="http://www.orcid.org/ns/education" xmlns:other-name="http://www.orcid.org/ns/other-name" xmlns:deprecated="http://www.orcid.org/ns/deprecated" xmlns:funding="http://www.orcid.org/ns/funding" xmlns:research-resource="http://www.orcid.org/ns/research-resource" xmlns:service="http://www.orcid.org/ns/service" xmlns:researcher-url="http://www.orcid.org/ns/researcher-url" xmlns:distinction="http://www.orcid.org/ns/distinction" xmlns:internal="http://www.orcid.org/ns/internal" xmlns:membership="http://www.orcid.org/ns/membership" xmlns:person="http://www.orcid.org/ns/person" xmlns:personal-details="http://www.orcid.org/ns/personal-details" xmlns:bulk="http://www.orcid.org/ns/bulk" xmlns:common="http://www.orcid.org/ns/common" xmlns:record="http://www.orcid.org/ns/record" xmlns:keyword="http://www.orcid.org/ns/keyword" xmlns:activities="http://www.orcid.org/ns/activities" xmlns:qualification="http://www.orcid.org/ns/qualification" xmlns:external-identifier="http://www.orcid.org/ns/external-identifier" xmlns:error="http://www.orcid.org/ns/error" xmlns:preferences="http://www.orcid.org/ns/preferences" xmlns:invited-position="http://www.orcid.org/ns/invited-position" xmlns:work="http://www.orcid.org/ns/work" xmlns:peer-review="http://www.orcid.org/ns/peer-review" path="/0000-0002-0816-7126">
+    <common:orcid-identifier>
+        <common:uri>https://orcid.org/0000-0002-0816-7126</common:uri>
+        <common:path>0000-0002-0816-7126</common:path>
+        <common:host>orcid.org</common:host>
+    </common:orcid-identifier>
+    <preferences:preferences>
+        <preferences:locale>en</preferences:locale>
+    </preferences:preferences>
+    <history:history>
+        <history:creation-method>Direct</history:creation-method>
+        <history:submission-date>2016-07-15T12:12:21.832Z</history:submission-date>
+        <common:last-modified-date>2024-08-27T14:48:57.167Z</common:last-modified-date>
+        <history:claimed>true</history:claimed>
+        <history:verified-email>true</history:verified-email>
+        <history:verified-primary-email>true</history:verified-primary-email>
+    </history:history>
+    <person:person path="/0000-0002-0816-7126/person">
+        <common:last-modified-date>2016-07-15T12:14:33.920Z</common:last-modified-date>
+        <person:name visibility="public" path="0000-0002-0816-7126">
+            <common:created-date>2016-07-15T12:12:22.052Z</common:created-date>
+            <common:last-modified-date>2016-07-15T12:12:22.052Z</common:last-modified-date>
+            <personal-details:given-names>Jose Benito</personal-details:given-names>
+            <personal-details:family-name>Gonzalez Lopez</personal-details:family-name>
+        </person:name>
+        <other-name:other-names path="/0000-0002-0816-7126/other-names"/>
+        <researcher-url:researcher-urls path="/0000-0002-0816-7126/researcher-urls"/>
+        <email:emails path="/0000-0002-0816-7126/email"/>
+        <address:addresses path="/0000-0002-0816-7126/address">
+            <common:last-modified-date>2016-07-15T12:14:33.920Z</common:last-modified-date>
+            <address:address put-code="499146" visibility="public" path="/0000-0002-0816-7126/address/499146" display-index="1">
+                <common:created-date>2016-07-15T12:14:33.920Z</common:created-date>
+                <common:last-modified-date>2016-07-15T12:14:33.920Z</common:last-modified-date>
+                <common:source>
+                    <common:source-orcid>
+                        <common:uri>https://orcid.org/0000-0002-0816-7126</common:uri>
+                        <common:path>0000-0002-0816-7126</common:path>
+                        <common:host>orcid.org</common:host>
+                    </common:source-orcid>
+                    <common:source-name>Jose Benito Gonzalez Lopez</common:source-name>
+                </common:source>
+                <address:country>ES</address:country>
+            </address:address>
+        </address:addresses>
+        <keyword:keywords path="/0000-0002-0816-7126/keywords"/>
+        <external-identifier:external-identifiers path="/0000-0002-0816-7126/external-identifiers"/>
+    </person:person>
+    <activities:activities-summary path="/0000-0002-0816-7126/activities">
+        <common:last-modified-date>2024-08-27T14:48:57.418Z</common:last-modified-date>
+        <activities:distinctions path="/0000-0002-0816-7126/distinctions"/>
+        <activities:educations path="/0000-0002-0816-7126/educations"/>
+        <activities:employments path="/0000-0002-0816-7126/employments">
+            <common:last-modified-date>2016-07-15T12:15:36.569Z</common:last-modified-date>
+            <activities:affiliation-group>
+                <common:last-modified-date>2016-07-15T12:15:36.569Z</common:last-modified-date>
+                <common:external-ids/>
+                <employment:employment-summary put-code="2019639" display-index="0" path="/0000-0002-0816-7126/employment/2019639" visibility="public">
+                    <common:created-date>2016-07-15T12:15:36.569Z</common:created-date>
+                    <common:last-modified-date>2016-07-15T12:15:36.569Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-orcid>
+                            <common:uri>https://orcid.org/0000-0002-0816-7126</common:uri>
+                            <common:path>0000-0002-0816-7126</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-orcid>
+                        <common:source-name>Jose Benito Gonzalez Lopez</common:source-name>
+                    </common:source>
+                    <common:department-name>IT</common:department-name>
+                    <common:role-title>Section Leader</common:role-title>
+                    <common:organization>
+                        <common:name>European Organization for Nuclear Research</common:name>
+                        <common:address>
+                            <common:city>Geneve</common:city>
+                            <common:region>GE</common:region>
+                            <common:country>CH</common:country>
+                        </common:address>
+                        <common:disambiguated-organization>
+                            <common:disambiguated-organization-identifier>30531</common:disambiguated-organization-identifier>
+                            <common:disambiguation-source>RINGGOLD</common:disambiguation-source>
+                        </common:disambiguated-organization>
+                    </common:organization>
+                </employment:employment-summary>
+            </activities:affiliation-group>
+        </activities:employments>
+        <activities:fundings path="/0000-0002-0816-7126/fundings"/>
+        <activities:invited-positions path="/0000-0002-0816-7126/invited-positions"/>
+        <activities:memberships path="/0000-0002-0816-7126/memberships"/>
+        <activities:peer-reviews path="/0000-0002-0816-7126/peer-reviews"/>
+        <activities:qualifications path="/0000-0002-0816-7126/qualifications"/>
+        <activities:research-resources path="/0000-0002-0816-7126/research-resources"/>
+        <activities:services path="/0000-0002-0816-7126/services"/>
+        <activities:works path="/0000-0002-0816-7126/works">
+            <common:last-modified-date>2024-08-27T14:48:57.418Z</common:last-modified-date>
+            <activities:group>
+                <common:last-modified-date>2024-08-27T14:48:56.804Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.17181/dd19c-hwf65</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.17181/dd19c-hwf65</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="166294861" path="/0000-0002-0816-7126/work/166294861" visibility="public" display-index="1">
+                    <common:created-date>2024-08-27T14:48:56.804Z</common:created-date>
+                    <common:last-modified-date>2024-08-27T14:48:56.804Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>CDS Content Policy</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.17181/dd19c-hwf65</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.17181/dd19c-hwf65</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>08</common:month>
+                        <common:day>27</common:day>
+                    </common:publication-date>
+                    <work:journal-title>CERN</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-08-27T14:48:57.418Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.17181/wacb8-5tz43</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.17181/wacb8-5tz43</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="166294862" path="/0000-0002-0816-7126/work/166294862" visibility="public" display-index="1">
+                    <common:created-date>2024-08-27T14:48:57.418Z</common:created-date>
+                    <common:last-modified-date>2024-08-27T14:48:57.418Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>CDS Content Policy</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.17181/wacb8-5tz43</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.17181/wacb8-5tz43</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>08</common:month>
+                        <common:day>27</common:day>
+                    </common:publication-date>
+                    <work:journal-title>CERN</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-08-27T14:47:04.051Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.17181/knhy7-1rc61</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.17181/knhy7-1rc61</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="166294810" path="/0000-0002-0816-7126/work/166294810" visibility="public" display-index="1">
+                    <common:created-date>2024-08-27T14:47:04.051Z</common:created-date>
+                    <common:last-modified-date>2024-08-27T14:47:04.051Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>CDS Terms of Use</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.17181/knhy7-1rc61</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.17181/knhy7-1rc61</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>08</common:month>
+                        <common:day>27</common:day>
+                    </common:publication-date>
+                    <work:journal-title>CERN</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-08-27T14:47:05.224Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.17181/53y0h-6ad63</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.17181/53y0h-6ad63</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="166294811" path="/0000-0002-0816-7126/work/166294811" visibility="public" display-index="1">
+                    <common:created-date>2024-08-27T14:47:05.223Z</common:created-date>
+                    <common:last-modified-date>2024-08-27T14:47:05.223Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>CDS Terms of Use</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.17181/53y0h-6ad63</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.17181/53y0h-6ad63</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>08</common:month>
+                        <common:day>27</common:day>
+                    </common:publication-date>
+                    <work:journal-title>CERN</work:journal-title>
+                </work:work-summary>
+                <work:work-summary put-code="166294812" path="/0000-0002-0816-7126/work/166294812" visibility="public" display-index="1">
+                    <common:created-date>2024-08-27T14:47:05.224Z</common:created-date>
+                    <common:last-modified-date>2024-08-27T14:47:05.224Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>CDS Terms of Use</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.17181/53y0h-6ad63</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.17181/53y0h-6ad63</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>08</common:month>
+                        <common:day>27</common:day>
+                    </common:publication-date>
+                    <work:journal-title>CERN</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-06-23T10:53:57.959Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.12212654</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.12212654</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="162167485" path="/0000-0002-0816-7126/work/162167485" visibility="public" display-index="1">
+                    <common:created-date>2024-06-23T10:53:57.959Z</common:created-date>
+                    <common:last-modified-date>2024-06-23T10:53:57.959Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Use Cases_Zenodo</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.12212654</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.12212654</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>06</common:month>
+                        <common:day>21</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-06-04T11:42:28.350Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.11401717</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.11401717</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="160911395" path="/0000-0002-0816-7126/work/160911395" visibility="public" display-index="0">
+                    <common:created-date>2024-06-04T11:42:28.350Z</common:created-date>
+                    <common:last-modified-date>2024-06-04T11:42:28.350Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>HORIZON-ZEN Dissemination, exploitation, and communication plan (D5.2)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.11401717</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.11401717</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>05</common:month>
+                        <common:day>31</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-06-04T11:43:09.535Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.10234729</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.10234729</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="160911450" path="/0000-0002-0816-7126/work/160911450" visibility="public" display-index="0">
+                    <common:created-date>2024-06-04T11:43:09.535Z</common:created-date>
+                    <common:last-modified-date>2024-06-04T11:43:09.535Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>HORIZON-ZEN Dissemination, exploitation, and communication plan (D5.2)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.10234729</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.10234729</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>05</common:month>
+                        <common:day>31</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-04-02T07:39:39.373Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.10901185</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.10901185</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="156746535" path="/0000-0002-0816-7126/work/156746535" visibility="public" display-index="0">
+                    <common:created-date>2024-04-02T07:39:39.373Z</common:created-date>
+                    <common:last-modified-date>2024-04-02T07:39:39.373Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>HORIZON-ZEN FAIR-enabling deposit workflow design (D2.3)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.10901185</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.10901185</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>03</common:month>
+                        <common:day>31</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-04-02T07:39:40.353Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.10901184</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.10901184</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="156746538" path="/0000-0002-0816-7126/work/156746538" visibility="public" display-index="0">
+                    <common:created-date>2024-04-02T07:39:40.353Z</common:created-date>
+                    <common:last-modified-date>2024-04-02T07:39:40.353Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>HORIZON-ZEN FAIR-enabling deposit workflow design (D2.3)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.10901184</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.10901184</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2024</common:year>
+                        <common:month>03</common:month>
+                        <common:day>31</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-12-21T17:18:06.211Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.10376005</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.10376005</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="149200460" path="/0000-0002-0816-7126/work/149200460" visibility="public" display-index="0">
+                    <common:created-date>2023-12-21T17:18:06.211Z</common:created-date>
+                    <common:last-modified-date>2023-12-21T17:18:06.211Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>SIRS Gap Analysis Report</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.10376005</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.10376005</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>12</common:month>
+                        <common:day>14</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-12-21T17:20:23.050Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.10376006</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.10376006</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="149200499" path="/0000-0002-0816-7126/work/149200499" visibility="public" display-index="0">
+                    <common:created-date>2023-12-21T17:20:23.050Z</common:created-date>
+                    <common:last-modified-date>2023-12-21T17:20:23.050Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>SIRS Gap Analysis Report</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.10376006</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.10376006</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>12</common:month>
+                        <common:day>14</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-06-04T11:42:56.115Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.10234730</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.10234730</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="160911440" path="/0000-0002-0816-7126/work/160911440" visibility="public" display-index="0">
+                    <common:created-date>2024-06-04T11:42:56.115Z</common:created-date>
+                    <common:last-modified-date>2024-06-04T11:42:56.115Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>HORIZON-ZEN Dissemination, exploitation, and communication plan (D5.2)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.10234730</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.10234730</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>11</common:month>
+                        <common:day>30</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-06-30T09:35:13.134Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8099189</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8099189</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="137815092" path="/0000-0002-0816-7126/work/137815092" visibility="public" display-index="0">
+                    <common:created-date>2023-06-30T09:35:13.134Z</common:created-date>
+                    <common:last-modified-date>2023-06-30T09:35:13.134Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Project plan and monitoring framework (D1.1)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8099189</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8099189</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>30</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-06-30T09:35:13.924Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8099188</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8099188</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="137815095" path="/0000-0002-0816-7126/work/137815095" visibility="public" display-index="0">
+                    <common:created-date>2023-06-30T09:35:13.924Z</common:created-date>
+                    <common:last-modified-date>2023-06-30T09:35:13.924Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Project plan and monitoring framework (D1.1)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8099188</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8099188</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>30</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-09-28T16:08:33.767Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8099253</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8099253</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="143198525" path="/0000-0002-0816-7126/work/143198525" visibility="public" display-index="0">
+                    <common:created-date>2023-09-28T16:08:33.767Z</common:created-date>
+                    <common:last-modified-date>2023-09-28T16:08:33.767Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Release and deployment strategy (D4.1)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8099253</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8099253</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>30</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-09-28T16:08:54.458Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8099252</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8099252</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="143198539" path="/0000-0002-0816-7126/work/143198539" visibility="public" display-index="0">
+                    <common:created-date>2023-09-28T16:08:54.458Z</common:created-date>
+                    <common:last-modified-date>2023-09-28T16:08:54.458Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Release and deployment strategy (D4.1)</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8099252</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8099252</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>30</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-06-28T15:49:24.567Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8091103</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8091103</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="137699495" path="/0000-0002-0816-7126/work/137699495" visibility="public" display-index="0">
+                    <common:created-date>2023-06-28T15:49:24.567Z</common:created-date>
+                    <common:last-modified-date>2023-06-28T15:49:24.567Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>EOSC IF Interoperability Guideline: Access to content via PID</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8091103</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8091103</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>28</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-06-28T15:49:46.912Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8091102</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8091102</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="137699590" path="/0000-0002-0816-7126/work/137699590" visibility="public" display-index="0">
+                    <common:created-date>2023-06-28T15:49:46.912Z</common:created-date>
+                    <common:last-modified-date>2023-06-28T15:49:46.912Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>EOSC IF Interoperability Guideline: Access to content via PID</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8091102</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8091102</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>28</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-06-28T15:49:10.234Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8091897</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8091897</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="137699483" path="/0000-0002-0816-7126/work/137699483" visibility="public" display-index="0">
+                    <common:created-date>2023-06-28T15:49:10.234Z</common:created-date>
+                    <common:last-modified-date>2023-06-28T15:49:10.234Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>EOSC-IF / Interoperability Guideline: Research Product Deposition</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8091897</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8091897</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>28</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-06-28T15:49:23.226Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.8091896</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.8091896</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="137699493" path="/0000-0002-0816-7126/work/137699493" visibility="public" display-index="0">
+                    <common:created-date>2023-06-28T15:49:23.226Z</common:created-date>
+                    <common:last-modified-date>2023-06-28T15:49:23.226Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>EOSC-IF / Interoperability Guideline: Research Product Deposition</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.8091896</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.8091896</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>06</common:month>
+                        <common:day>28</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-05-22T23:12:38.529Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.7959526</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.7959526</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="135535409" path="/0000-0002-0816-7126/work/135535409" visibility="public" display-index="0">
+                    <common:created-date>2023-05-22T23:12:38.529Z</common:created-date>
+                    <common:last-modified-date>2023-05-22T23:12:38.529Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Use Cases_Zenodo</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.7959526</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.7959526</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>05</common:month>
+                        <common:day>22</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-05-22T23:12:39.174Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.7959525</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.7959525</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="135535410" path="/0000-0002-0816-7126/work/135535410" visibility="public" display-index="0">
+                    <common:created-date>2023-05-22T23:12:39.174Z</common:created-date>
+                    <common:last-modified-date>2023-05-22T23:12:39.174Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Use Cases_Zenodo</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.7959525</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.7959525</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2023</common:year>
+                        <common:month>05</common:month>
+                        <common:day>22</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-08-22T10:28:19.407Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.3897/biss.6.91167</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.3897/biss.6.91167</common:external-id-normalized>
+                        <common:external-id-url>https://doi.org/10.3897/biss.6.91167</common:external-id-url>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="117621934" path="/0000-0002-0816-7126/work/117621934" visibility="public" display-index="0">
+                    <common:created-date>2022-08-22T10:28:19.407Z</common:created-date>
+                    <common:last-modified-date>2022-08-22T10:28:19.407Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-9884-1913</common:uri>
+                            <common:path>0000-0001-9884-1913</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>Crossref</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Enabling Published Taxonomic Data to be used to Address the Biodiversity Crisis: Biodiversity Literature Repository and TreatmentBank</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.3897/biss.6.91167</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.3897/biss.6.91167</common:external-id-normalized>
+                            <common:external-id-url>https://doi.org/10.3897/biss.6.91167</common:external-id-url>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <common:url>https://doi.org/10.3897/biss.6.91167</common:url>
+                    <work:type>journal-article</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                        <common:month>08</common:month>
+                        <common:day>02</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Biodiversity Information Science and Standards</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-01-09T11:50:42.709Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.7514339</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.7514339</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="126084603" path="/0000-0002-0816-7126/work/126084603" visibility="public" display-index="0">
+                    <common:created-date>2023-01-09T11:50:42.709Z</common:created-date>
+                    <common:last-modified-date>2023-01-09T11:50:42.709Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Episciences: enhancing interoperability and metadata between an overlay journal platform, linked repositories and OpenAIRE open sciences tools and services</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.7514339</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.7514339</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>conference-poster</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                        <common:month>06</common:month>
+                        <common:day>06</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-01-09T11:50:43.197Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.7514338</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.7514338</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="126084605" path="/0000-0002-0816-7126/work/126084605" visibility="public" display-index="0">
+                    <common:created-date>2023-01-09T11:50:43.197Z</common:created-date>
+                    <common:last-modified-date>2023-01-09T11:50:43.197Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Episciences: enhancing interoperability and metadata between an overlay journal platform, linked repositories and OpenAIRE open sciences tools and services</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.7514338</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.7514338</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>conference-poster</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                        <common:month>06</common:month>
+                        <common:day>06</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2024-08-21T10:54:07.077Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.34734/fzj-2024-03718</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.34734/fzj-2024-03718</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="165902374" path="/0000-0002-0816-7126/work/165902374" visibility="public" display-index="1">
+                    <common:created-date>2024-08-21T10:54:07.077Z</common:created-date>
+                    <common:last-modified-date>2024-08-21T10:54:07.077Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Zenodo, Open Science, and Digital repositories</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.34734/fzj-2024-03718</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.34734/fzj-2024-03718</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2022</common:year>
+                    </common:publication-date>
+                    <work:journal-title>Forschungzentrum Jülich</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-05-27T19:13:03.082Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.2548643</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.2548643</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="53104792" path="/0000-0002-0816-7126/work/53104792" visibility="public" display-index="0">
+                    <common:created-date>2019-01-24T14:27:33.084Z</common:created-date>
+                    <common:last-modified-date>2022-05-27T19:13:03.082Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Asclepias: Flower Power for Software Citation</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.2548643</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.2548643</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2019</common:year>
+                        <common:month>01</common:month>
+                        <common:day>24</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-05-27T19:13:03.095Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.2548642</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.2548642</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="53104794" path="/0000-0002-0816-7126/work/53104794" visibility="public" display-index="0">
+                    <common:created-date>2019-01-24T14:27:33.285Z</common:created-date>
+                    <common:last-modified-date>2022-05-27T19:13:03.095Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Asclepias: Flower Power for Software Citation</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.2548642</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.2548642</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2019</common:year>
+                        <common:month>01</common:month>
+                        <common:day>24</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-05-29T18:02:17.046Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.2633629</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.2633629</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="135916652" path="/0000-0002-0816-7126/work/135916652" visibility="public" display-index="0">
+                    <common:created-date>2023-05-29T18:02:17.046Z</common:created-date>
+                    <common:last-modified-date>2023-05-29T18:02:17.046Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Preserving Scientific Annotation Working Group Birds-of-a-Feather Meeting</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.2633629</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.2633629</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                        <common:month>11</common:month>
+                        <common:day>07</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2023-05-29T18:02:17.712Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.2633630</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.2633630</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="135916653" path="/0000-0002-0816-7126/work/135916653" visibility="public" display-index="0">
+                    <common:created-date>2023-05-29T18:02:17.712Z</common:created-date>
+                    <common:last-modified-date>2023-05-29T18:02:17.712Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Preserving Scientific Annotation Working Group Birds-of-a-Feather Meeting</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.2633630</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.2633630</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>other</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                        <common:month>11</common:month>
+                        <common:day>07</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-05-27T17:53:02.247Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.1470551</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.1470551</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="52308456" path="/0000-0002-0816-7126/work/52308456" visibility="public" display-index="0">
+                    <common:created-date>2019-01-07T10:30:27.646Z</common:created-date>
+                    <common:last-modified-date>2022-05-27T17:53:02.247Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Usage statistics do count</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.1470551</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.1470551</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>conference-poster</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                        <common:month>10</common:month>
+                        <common:day>24</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+            <activities:group>
+                <common:last-modified-date>2022-05-27T17:53:02.260Z</common:last-modified-date>
+                <common:external-ids>
+                    <common:external-id>
+                        <common:external-id-type>doi</common:external-id-type>
+                        <common:external-id-value>10.5281/zenodo.1470552</common:external-id-value>
+                        <common:external-id-normalized transient="true">10.5281/zenodo.1470552</common:external-id-normalized>
+                        <common:external-id-relationship>self</common:external-id-relationship>
+                    </common:external-id>
+                </common:external-ids>
+                <work:work-summary put-code="52308457" path="/0000-0002-0816-7126/work/52308457" visibility="public" display-index="0">
+                    <common:created-date>2019-01-07T10:30:27.693Z</common:created-date>
+                    <common:last-modified-date>2022-05-27T17:53:02.254Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Usage statistics do count</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.1470552</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.1470552</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>conference-poster</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                        <common:month>10</common:month>
+                        <common:day>24</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+                <work:work-summary put-code="52308458" path="/0000-0002-0816-7126/work/52308458" visibility="public" display-index="0">
+                    <common:created-date>2019-01-07T10:30:27.716Z</common:created-date>
+                    <common:last-modified-date>2022-05-27T17:53:02.260Z</common:last-modified-date>
+                    <common:source>
+                        <common:source-client-id>
+                            <common:uri>https://orcid.org/client/0000-0001-8099-6984</common:uri>
+                            <common:path>0000-0001-8099-6984</common:path>
+                            <common:host>orcid.org</common:host>
+                        </common:source-client-id>
+                        <common:source-name>DataCite</common:source-name>
+                    </common:source>
+                    <work:title>
+                        <common:title>Usage statistics do count</common:title>
+                    </work:title>
+                    <common:external-ids>
+                        <common:external-id>
+                            <common:external-id-type>doi</common:external-id-type>
+                            <common:external-id-value>10.5281/zenodo.1470552</common:external-id-value>
+                            <common:external-id-normalized transient="true">10.5281/zenodo.1470552</common:external-id-normalized>
+                            <common:external-id-relationship>self</common:external-id-relationship>
+                        </common:external-id>
+                    </common:external-ids>
+                    <work:type>conference-poster</work:type>
+                    <common:publication-date>
+                        <common:year>2018</common:year>
+                        <common:month>10</common:month>
+                        <common:day>24</common:day>
+                    </common:publication-date>
+                    <work:journal-title>Zenodo</work:journal-title>
+                </work:work-summary>
+            </activities:group>
+        </activities:works>
+    </activities:activities-summary>
+</record:record>
