@@ -1,16 +1,20 @@
 use anyhow::{bail, Result};
 use chrono::Utc;
 use flate2::read::GzDecoder;
-use std::fs;
-use std::io::{stdout, Read};
-use std::path::{Path, PathBuf};
-use std::{ffi::OsStr, fs::File};
+use std::{
+    ffi::OsStr,
+    fs::{self, File},
+    io::{stdout, Read},
+    path::{Path, PathBuf},
+};
 use tar::Archive;
 
 use uuid::Uuid;
 
 use quick_xml::de::Deserializer;
 use serde::Deserialize;
+
+use clap::{Parser, Subcommand};
 
 #[derive(Debug, PartialEq, Default, Deserialize)]
 struct Identifier {
@@ -287,16 +291,37 @@ fn parse_tgz(tgz_path: &Path) -> Result<()> {
     Ok(())
 }
 
+#[derive(Parser)]
+#[command(version, about, long_about = None)]
+struct Cli {
+    #[command(subcommand)]
+    command: Option<Commands>,
+}
+
+#[derive(Subcommand)]
+enum Commands {
+    Convert {
+        #[arg(short, long, help = "Path to the ORCiD dump file")]
+        input_file: PathBuf,
+    },
+}
+
 fn main() {
-    let path = std::env::args().nth(1).expect("No ORCiD dump path given.");
-    if path.ends_with(".xml") {
-        let record = parse_xml(&PathBuf::from(path)).expect("Failed to parse XML");
-        let line = csv_line_from_record(&record).expect("Failed to convert to CSV");
-        let mut writer = csv::WriterBuilder::new()
-            .has_headers(false)
-            .from_writer(stdout());
-        writer.serialize(line).unwrap()
-    } else {
-        let _ = parse_tgz(&PathBuf::from(path));
+    let cli = Cli::parse();
+
+    match &cli.command {
+        Some(Commands::Convert { input_file }) => {
+            if input_file.ends_with(".xml") {
+                let record = parse_xml(input_file).expect("Failed to parse XML");
+                let line = csv_line_from_record(&record).expect("Failed to convert to CSV");
+                let mut writer = csv::WriterBuilder::new()
+                    .has_headers(false)
+                    .from_writer(stdout());
+                writer.serialize(line).unwrap()
+            } else {
+                let _ = parse_tgz(input_file);
+            }
+        }
+        None => {}
     }
 }

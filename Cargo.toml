@@ -1,15 +1,23 @@
 [package]
-name = "orcid-xml-rs"
+name = "orcid-data-toolkit"
 version = "0.1.0"
+authors = ["Alex Ioannidis <a.ioannidis@cern.ch"]
+description = """A CLI tool to work with the ORCiD Public Data file."""
+documentation = "https://github.com/inveniosoftware/orcid-data-toolkit"
+homepage = "https://github.com/inveniosoftware/orcid-data-toolkit"
+repository = "https://github.com/inveniosoftware/orcid-data-toolkit"
+categories = ["command-line-utilities", "orcid"]
+license = "MIT"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
 anyhow = "1.0.75"
 chrono = { version = "0.4.30", features = ["serde"] }
+clap = { version = "4.5.20", features = ["derive"] }
 csv = "1.2.2"
-flate2 = { version = "1.0.27", features = ["zlib-ng"], default-features = false }
+flate2 = { version = "1.0.27", features = [
+    "zlib-ng",
+], default-features = false }
 quick-xml = { version = "0.30.0", features = ["serde", "serialize"] }
 serde = { version = "1.0.188", features = ["derive"] }
 serde_json = "1.0.105"
