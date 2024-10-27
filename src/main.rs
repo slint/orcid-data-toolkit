@@ -14,7 +14,7 @@ use uuid::Uuid;
 use quick_xml::de::Deserializer;
 use serde::Deserialize;
 
-use clap::{Parser, Subcommand};
+use clap::{Parser, Subcommand, ValueEnum};
 
 #[derive(Debug, PartialEq, Default, Deserialize)]
 struct Identifier {
@@ -298,11 +298,32 @@ struct Cli {
     command: Option<Commands>,
 }
 
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
+enum Format {
+    InvenioRDMNames,
+}
+
 #[derive(Subcommand)]
 enum Commands {
     Convert {
-        #[arg(short, long, help = "Path to the ORCiD dump file")]
+        #[arg(
+            short,
+            long,
+            required = true,
+            help = "Path to the ORCiD public data file"
+        )]
         input_file: PathBuf,
+
+        #[arg(
+            short,
+            long,
+            help = "Path to where to output the converted file",
+            default_value = "-"
+        )]
+        output_file: PathBuf,
+
+        #[arg(value_enum, short, long, help = "Output format", default_value_t=Format::InvenioRDMNames)]
+        format: Format,
     },
 }
 
@@ -310,7 +331,15 @@ fn main() {
     let cli = Cli::parse();
 
     match &cli.command {
-        Some(Commands::Convert { input_file }) => {
+        Some(Commands::Convert {
+            input_file,
+            output_file,
+            format: _,
+        }) => {
+            if output_file != Path::new("-") {
+                eprintln!("Can only output to stdout for now");
+                return;
+            }
             if input_file.ends_with(".xml") {
                 let record = parse_xml(input_file).expect("Failed to parse XML");
                 let line = csv_line_from_record(&record).expect("Failed to convert to CSV");
