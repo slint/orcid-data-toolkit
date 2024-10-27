@@ -86,27 +86,27 @@ struct Record {
 }
 
 #[derive(Debug, serde::Serialize)]
-struct NameIdentifier<'a> {
-    scheme: &'a str,
-    identifier: &'a str,
+struct NameIdentifier {
+    scheme: String,
+    identifier: String,
 }
 
 #[derive(Debug, serde::Serialize)]
-struct NameAffiliation<'a> {
+struct NameAffiliation {
     #[serde(skip_serializing_if = "Option::is_none")]
-    id: Option<&'a str>,
-    name: &'a str,
+    id: Option<String>,
+    name: String,
 }
 
 #[derive(Debug, serde::Serialize)]
 #[serde(tag = "$schema", rename = "local://names/name-v1.0.0.json")]
-struct NameJson<'a> {
-    given_name: &'a str,
-    family_name: &'a str,
-    name: &'a str,
-    identifiers: Vec<NameIdentifier<'a>>,
+struct NameJson {
+    given_name: String,
+    family_name: String,
+    name: String,
+    identifiers: Vec<NameIdentifier>,
     #[serde(skip_serializing_if = "Option::is_none")]
-    affiliations: Option<Vec<NameAffiliation<'a>>>,
+    affiliations: Option<Vec<NameAffiliation>>,
 }
 
 #[derive(serde::Serialize)]
@@ -121,78 +121,7 @@ struct Row {
 
 fn csv_line_from_record(record: &Record) -> Result<Row> {
     let now = Utc::now().to_rfc3339();
-    let mut affiliations: Vec<NameAffiliation> = vec![];
-    let employments = record.activities.employments.employment.as_ref();
-    if let Some(_employments) = employments {
-        _employments
-            .iter()
-            .filter_map(|a| match a.employment.end {
-                Some(_) => None,
-                None => {
-                    let ror_id = match &a.employment.organization.identifier {
-                        Some(identifier) if identifier.source == "ROR" => {
-                            Some(identifier.identifier.as_str().rsplit_once('/')?.1)
-                        }
-                        _ => None,
-                    };
-                    Some(NameAffiliation {
-                        name: &a.employment.organization.name,
-                        id: ror_id,
-                    })
-                }
-            })
-            .for_each(|n| affiliations.push(n));
-    }
-
-    let (given_name, family_name, name) = match &record.person.name {
-        PersonName {
-            given_names: Some(given_names),
-            family_name: None,
-        } => {
-            if given_names.trim().len() > 0 {
-                (String::from(""), given_names.clone(), given_names.clone())
-            } else {
-                bail!("Can't determine person name")
-            }
-        }
-        PersonName {
-            given_names: Some(given_names),
-            family_name: Some(family_name),
-        } => (
-            given_names.clone(),
-            family_name.clone(),
-            format!("{}, {}", family_name, given_names),
-        ),
-        PersonName {
-            given_names: None,
-            family_name: Some(family_name),
-        } => {
-            if family_name.trim().len() > 0 {
-                (String::from(""), family_name.clone(), family_name.clone())
-            } else {
-                bail!("Can't determine person name")
-            }
-        }
-        PersonName {
-            given_names: None,
-            family_name: None,
-        } => bail!("Can't determine person name"),
-    };
-
-    let name_json = NameJson {
-        given_name: given_name.as_str(),
-        family_name: family_name.as_str(),
-        name: name.as_str(),
-        identifiers: vec![NameIdentifier {
-            scheme: "orcid",
-            identifier: &record.identifier.path,
-        }],
-        affiliations: if affiliations.is_empty() {
-            None
-        } else {
-            Some(affiliations)
-        },
-    };
+    let name_json = record_to_json(record)?;
     Ok(Row {
         created: String::from(now.as_str()),
         updated: String::from(now.as_str()),
@@ -203,36 +132,80 @@ fn csv_line_from_record(record: &Record) -> Result<Row> {
     })
 }
 
-fn parse_xml(xml_path: &Path) -> Result<Record> {
-    let xml: String = fs::read_to_string(xml_path)?.parse()?;
-    let rd = &mut Deserializer::from_str(&xml);
-    match serde_path_to_error::deserialize(rd) {
-        Ok(record) => Ok(record),
-        Err(err) => {
-            let err_path = err.path().to_string();
-            dbg!(err_path);
-            Err(err.into())
-        }
+fn record_to_json(record: &Record) -> Result<NameJson> {
+    let mut affiliations: Vec<NameAffiliation> = vec![];
+    let employments = record.activities.employments.employment.as_ref();
+    if let Some(_employments) = employments {
+        _employments
+            .iter()
+            .filter_map(|a| match a.employment.end {
+                Some(_) => None,
+                None => {
+                    let ror_id = match &a.employment.organization.identifier {
+                        Some(identifier) if identifier.source == "ROR" => Some(
+                            identifier
+                                .identifier
+                                .as_str()
+                                .rsplit_once('/')?
+                                .1
+                                .to_string(),
+                        ),
+                        _ => None,
+                    };
+                    Some(NameAffiliation {
+                        name: a.employment.organization.name.clone(),
+                        id: ror_id,
+                    })
+                }
+            })
+            .for_each(|n| affiliations.push(n));
     }
+
+    let (given_name, family_name, name) = match &record.person.name {
+        PersonName {
+            given_names: Some(name),
+            family_name: None,
+        }
+        | PersonName {
+            given_names: None,
+            family_name: Some(name),
+        } => {
+            if name.trim().len() > 0 {
+                (String::new(), name.clone(), name.clone())
+            } else {
+                bail!("Can't determine person name")
+            }
+        }
+
+        // If both values are present, combine them
+        PersonName {
+            given_names: Some(given_names),
+            family_name: Some(family_name),
+        } => (
+            given_names.clone(),
+            family_name.clone(),
+            format!("{}, {}", family_name, given_names),
+        ),
+        PersonName {
+            given_names: None,
+            family_name: None,
+        } => bail!("Can't determine person name"),
+    };
+
+    Ok(NameJson {
+        given_name,
+        family_name,
+        name,
+        identifiers: vec![NameIdentifier {
+            scheme: "orcid".to_string(),
+            identifier: record.identifier.path.clone(),
+        }],
+        affiliations: (!affiliations.is_empty()).then_some(affiliations),
+    })
 }
 
-fn parse_tgz(tgz_path: &Path) -> Result<()> {
-    // TODO: Probably return a stream of records instead of writing directly to stdout
-    let mut writer = csv::WriterBuilder::new()
-        .has_headers(false)
-        .from_writer(stdout());
-
-    let file = File::open(tgz_path).map_err(|e| {
-        eprintln!("Error opening file {}: {}", tgz_path.display(), e);
-        e
-    })?;
-    let mut archive = Archive::new(GzDecoder::new(file));
-    archive
-        .entries()
-        .map_err(|e| {
-            eprintln!("Error reading archive entries: {}", e);
-            e
-        })?
+fn iter_records<R: Read>(entries: tar::Entries<R>) -> impl Iterator<Item = Record> + use<'_, R> {
+    entries
         .filter_map(|e| match e {
             Ok(entry) => {
                 let path = match entry.path() {
@@ -276,19 +249,103 @@ fn parse_tgz(tgz_path: &Path) -> Result<()> {
                 }
             }
         })
-        .for_each(|r| {
-            let record = match csv_line_from_record(&r) {
-                Ok(record) => record,
-                Err(e) => {
-                    eprintln!("Error converting record to CSV: {}", e);
-                    return;
+}
+
+fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertFormat) {
+    // Open the input .tar.gz
+    let file = File::open(input_file)
+        .map_err(|e| {
+            eprintln!("Error opening file {}: {}", input_file.display(), e);
+            e
+        })
+        .unwrap();
+    let mut archive = Archive::new(GzDecoder::new(file));
+    let records = iter_records(archive.entries().unwrap());
+
+    // Open the output CSV writer
+    let mut out_stream = match output_file.to_str() {
+        Some("-") => Box::new(stdout()) as Box<dyn std::io::Write>,
+        _ => Box::new(
+            File::create(output_file)
+                .map_err(|e| {
+                    eprintln!(
+                        "Error creating output file {}: {}",
+                        output_file.display(),
+                        e
+                    );
+                    e
+                })
+                .unwrap(),
+        ),
+    };
+
+    match format {
+        ConvertFormat::NDJSON => {
+            for r in records {
+                let json = match record_to_json(&r) {
+                    Ok(record) => record,
+                    Err(e) => {
+                        eprintln!("Error converting record to JSON: {}", e);
+                        continue;
+                    }
+                };
+
+                if let Err(e) = serde_json::to_writer(&mut out_stream, &json) {
+                    eprintln!("Error writing JSON: {}", e);
                 }
-            };
-            if let Err(e) = writer.serialize(record) {
-                eprintln!("Error writing CSV line: {}", e);
             }
-        });
-    Ok(())
+            return;
+        }
+        ConvertFormat::InvenioRDMNames => {
+            let mut writer = csv::WriterBuilder::new()
+                .has_headers(false)
+                .from_writer(out_stream);
+
+            // Convert and write the records to CSV
+            records.for_each(|r| {
+                let row = match csv_line_from_record(&r) {
+                    Ok(record) => record,
+                    Err(e) => {
+                        eprintln!("Error converting record to CSV: {}", e);
+                        return;
+                    }
+                };
+                if let Err(e) = writer.serialize(row) {
+                    eprintln!("Error writing CSV line: {}", e);
+                }
+            })
+        }
+    };
+}
+
+fn convert_xml(input_file: &PathBuf, format: &ConvertFormat) {
+    let record = {
+        let xml = fs::read_to_string(input_file).expect("Failed to read XML file");
+        let rd = &mut Deserializer::from_str(&xml);
+        match serde_path_to_error::deserialize(rd) {
+            Ok(record) => Ok::<Record, anyhow::Error>(record),
+            Err(err) => {
+                let err_path = err.path().to_string();
+                dbg!(err_path);
+                Err(err.into())
+            }
+        }
+    }
+    .expect("Failed to parse XML");
+
+    match format {
+        ConvertFormat::InvenioRDMNames => {
+            let row = csv_line_from_record(&record).expect("Failed to convert to CSV");
+            let mut writer = csv::WriterBuilder::new()
+                .has_headers(false)
+                .from_writer(stdout());
+            writer.serialize(row).unwrap()
+        }
+        ConvertFormat::NDJSON => {
+            let name_json = record_to_json(&record).expect("Failed to convert to JSON");
+            println!("{}", serde_json::to_string_pretty(&name_json).unwrap());
+        }
+    }
 }
 
 #[derive(Parser)]
@@ -299,8 +356,14 @@ struct Cli {
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
-enum Format {
+enum ConvertFormat {
     InvenioRDMNames,
+    NDJSON,
+}
+
+#[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
+enum ExtractFormat {
+    RINGGOLD,
 }
 
 #[derive(Subcommand)]
@@ -322,8 +385,29 @@ enum Commands {
         )]
         output_file: PathBuf,
 
-        #[arg(value_enum, short, long, help = "Output format", default_value_t=Format::InvenioRDMNames)]
-        format: Format,
+        #[arg(value_enum, short, long, help = "Output format", default_value_t=ConvertFormat::InvenioRDMNames)]
+        format: ConvertFormat,
+    },
+
+    Extract {
+        #[arg(
+            short,
+            long,
+            required = true,
+            help = "Path to the ORCiD public data file"
+        )]
+        input_file: PathBuf,
+
+        #[arg(
+            short,
+            long,
+            help = "Path to where to output the extracted file",
+            default_value = "-"
+        )]
+        output_file: PathBuf,
+
+        #[arg(value_enum, short, long, help = "Extract format", default_value_t=ExtractFormat::RINGGOLD)]
+        format: ExtractFormat,
     },
 }
 
@@ -334,21 +418,26 @@ fn main() {
         Some(Commands::Convert {
             input_file,
             output_file,
-            format: _,
+            format,
         }) => {
             if output_file != Path::new("-") {
                 eprintln!("Can only output to stdout for now");
                 return;
             }
-            if input_file.ends_with(".xml") {
-                let record = parse_xml(input_file).expect("Failed to parse XML");
-                let line = csv_line_from_record(&record).expect("Failed to convert to CSV");
-                let mut writer = csv::WriterBuilder::new()
-                    .has_headers(false)
-                    .from_writer(stdout());
-                writer.serialize(line).unwrap()
-            } else {
-                let _ = parse_tgz(input_file);
+            match input_file.extension().and_then(OsStr::to_str) {
+                Some("xml") => convert_xml(input_file, format),
+                Some("gz") => convert_tgz(input_file, output_file, format),
+                _ => eprintln!("Unsupported file extension"),
+            };
+        }
+        Some(Commands::Extract {
+            input_file: _,
+            output_file,
+            format: _,
+        }) => {
+            if output_file != Path::new("-") {
+                eprintln!("Can only output to stdout for now");
+                return;
             }
         }
         None => {}
