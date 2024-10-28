@@ -215,7 +215,7 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
     })
 }
 
-fn iter_records<R: Read>(entries: tar::Entries<R>) -> impl Iterator<Item = Record> + use<'_, R> {
+fn iter_records<R: Read>(entries: tar::Entries<'_, R>) -> impl Iterator<Item = Record> + '_ {
     entries
         .filter_map(|entry_result| {
             let entry = entry_result.ok()?;
