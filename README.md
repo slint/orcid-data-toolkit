@@ -47,11 +47,11 @@ orcid-data-toolkit convert \
 ```
 
 For development/debug purposes you can also pass an individual ORCiD Summmary
-XML file:
+XML file into JSON:
 
 ```bash
 # Will output the converted data to stdout
-orcid-data-toolkit convert --input-file 0000-0002-5082-6404.xml
+orcid-data-toolkit convert --format json --input-file samples/alex.xml
 ```
 
 ## Development

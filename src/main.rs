@@ -1,11 +1,11 @@
-use anyhow::{bail, Result};
+use anyhow::{bail, Context, Result};
 use chrono::Utc;
 use flate2::read::GzDecoder;
 use std::{
     ffi::OsStr,
     fs::{self, File},
     io::{stdout, Read},
-    path::{Path, PathBuf},
+    path::PathBuf,
 };
 use tar::Archive;
 
@@ -119,7 +119,7 @@ struct Row {
     pid: String,
 }
 
-fn csv_line_from_record(record: &Record) -> Result<Row> {
+fn record_to_row(record: &Record) -> Result<Row> {
     let now = Utc::now().to_rfc3339();
     let name_json = record_to_json(record)?;
     Ok(Row {
@@ -170,7 +170,7 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
             given_names: None,
             family_name: Some(name),
         } => {
-            if name.trim().len() > 0 {
+            if name.trim().is_empty() {
                 (String::new(), name.clone(), name.clone())
             } else {
                 bail!("Can't determine person name")
@@ -206,43 +206,25 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
 
 fn iter_records<R: Read>(entries: tar::Entries<R>) -> impl Iterator<Item = Record> + use<'_, R> {
     entries
-        .filter_map(|e| match e {
-            Ok(entry) => {
-                let path = match entry.path() {
-                    Ok(p) => p,
-                    Err(e) => {
-                        eprintln!("Error getting entry path: {}", e);
-                        return None;
-                    }
-                };
-                match path.extension().and_then(OsStr::to_str) {
-                    Some("xml") => Some(entry),
-                    _ => None,
-                }
-            }
-            Err(e) => {
-                eprintln!("Error reading archive entry: {}", e);
+        .filter_map(|entry_result| {
+            let entry = entry_result.ok()?;
+            let path = entry.path().ok()?;
+            if path.extension().and_then(OsStr::to_str) == Some("xml") {
+                Some(entry)
+            } else {
                 None
             }
         })
         .filter_map(|mut entry| -> Option<Record> {
             let mut xml_content = String::new();
-            let path = entry
-                .path()
-                .ok()
-                .map(|p| p.display().to_string())
-                .unwrap_or_default();
-            if let Err(e) = entry.read_to_string(&mut xml_content) {
-                eprintln!("Error reading XML content for {}: {}", path, e);
-                return None;
-            }
+            entry.read_to_string(&mut xml_content).ok()?;
             let rd = &mut Deserializer::from_str(&xml_content);
             match serde_path_to_error::deserialize(rd) {
                 Ok(record) => Some(record),
                 Err(err) => {
                     eprintln!(
                         "Error parsing XML content for {}: {}",
-                        path,
+                        entry.path().unwrap().display(),
                         err.path().to_string()
                     );
                     None
@@ -251,14 +233,10 @@ fn iter_records<R: Read>(entries: tar::Entries<R>) -> impl Iterator<Item = Recor
         })
 }
 
-fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertFormat) {
+fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertFormat) -> Result<()> {
     // Open the input .tar.gz
     let file = File::open(input_file)
-        .map_err(|e| {
-            eprintln!("Error opening file {}: {}", input_file.display(), e);
-            e
-        })
-        .unwrap();
+        .with_context(|| format!("Error opening file {}", input_file.display()))?;
     let mut archive = Archive::new(GzDecoder::new(file));
     let records = iter_records(archive.entries().unwrap());
 
@@ -267,34 +245,18 @@ fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertForm
         Some("-") => Box::new(stdout()) as Box<dyn std::io::Write>,
         _ => Box::new(
             File::create(output_file)
-                .map_err(|e| {
-                    eprintln!(
-                        "Error creating output file {}: {}",
-                        output_file.display(),
-                        e
-                    );
-                    e
-                })
-                .unwrap(),
+                .with_context(|| format!("Error opening file {}", input_file.display()))?,
         ),
     };
 
     match format {
-        ConvertFormat::NDJSON => {
+        ConvertFormat::JSON => {
             for r in records {
-                let json = match record_to_json(&r) {
-                    Ok(record) => record,
-                    Err(e) => {
-                        eprintln!("Error converting record to JSON: {}", e);
-                        continue;
-                    }
-                };
-
-                if let Err(e) = serde_json::to_writer(&mut out_stream, &json) {
-                    eprintln!("Error writing JSON: {}", e);
-                }
+                let json = record_to_json(&r)
+                    .with_context(|| format!("Error converting record to JSON"))?;
+                serde_json::to_writer(&mut out_stream, &json)
+                    .with_context(|| format!("Error writing JSON"))?;
             }
-            return;
         }
         ConvertFormat::InvenioRDMNames => {
             let mut writer = csv::WriterBuilder::new()
@@ -302,63 +264,60 @@ fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertForm
                 .from_writer(out_stream);
 
             // Convert and write the records to CSV
-            records.for_each(|r| {
-                let row = match csv_line_from_record(&r) {
-                    Ok(record) => record,
-                    Err(e) => {
-                        eprintln!("Error converting record to CSV: {}", e);
-                        return;
-                    }
-                };
-                if let Err(e) = writer.serialize(row) {
-                    eprintln!("Error writing CSV line: {}", e);
-                }
-            })
-        }
-    };
-}
-
-fn convert_xml(input_file: &PathBuf, format: &ConvertFormat) {
-    let record = {
-        let xml = fs::read_to_string(input_file).expect("Failed to read XML file");
-        let rd = &mut Deserializer::from_str(&xml);
-        match serde_path_to_error::deserialize(rd) {
-            Ok(record) => Ok::<Record, anyhow::Error>(record),
-            Err(err) => {
-                let err_path = err.path().to_string();
-                dbg!(err_path);
-                Err(err.into())
+            for r in records {
+                let row =
+                    record_to_row(&r).with_context(|| format!("Error converting record to CSV"))?;
+                writer
+                    .serialize(row)
+                    .with_context(|| format!("Error writing CSV line"))?;
             }
         }
-    }
-    .expect("Failed to parse XML");
+    };
+    Ok(())
+}
+
+fn convert_xml(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertFormat) -> Result<()> {
+    let xml = fs::read_to_string(input_file).expect("Failed to read XML file");
+    let rd = &mut Deserializer::from_str(&xml);
+    let record = serde_path_to_error::deserialize(rd)
+        .with_context(|| format!("Error parsing XML content"))?;
+
+    let mut out_stream = match output_file.to_str() {
+        Some("-") => Box::new(stdout()) as Box<dyn std::io::Write>,
+        _ => Box::new(
+            File::create(output_file)
+                .with_context(|| format!("Error opening file {}", input_file.display()))?,
+        ),
+    };
 
     match format {
         ConvertFormat::InvenioRDMNames => {
-            let row = csv_line_from_record(&record).expect("Failed to convert to CSV");
+            let row = record_to_row(&record).expect("Failed to convert to CSV");
             let mut writer = csv::WriterBuilder::new()
                 .has_headers(false)
-                .from_writer(stdout());
+                .from_writer(out_stream);
             writer.serialize(row).unwrap()
         }
-        ConvertFormat::NDJSON => {
-            let name_json = record_to_json(&record).expect("Failed to convert to JSON");
-            println!("{}", serde_json::to_string_pretty(&name_json).unwrap());
+        ConvertFormat::JSON => {
+            let json = record_to_json(&record).expect("Failed to convert to JSON");
+            serde_json::to_writer_pretty(&mut out_stream, &json)
+                .with_context(|| format!("Error writing JSON"))?;
         }
-    }
+    };
+    Ok(())
 }
 
 #[derive(Parser)]
 #[command(version, about, long_about = None)]
 struct Cli {
     #[command(subcommand)]
-    command: Option<Commands>,
+    command: Commands,
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 enum ConvertFormat {
     InvenioRDMNames,
-    NDJSON,
+    JSON,
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
@@ -369,77 +328,51 @@ enum ExtractFormat {
 #[derive(Subcommand)]
 enum Commands {
     Convert {
-        #[arg(
-            short,
-            long,
-            required = true,
-            help = "Path to the ORCiD public data file"
-        )]
+        /// Path to the ORCiD public data file
+        #[arg(short, long)]
         input_file: PathBuf,
 
-        #[arg(
-            short,
-            long,
-            help = "Path to where to output the converted file",
-            default_value = "-"
-        )]
+        /// Path to where to output the converted file,
+        #[arg(short, long, default_value = "-")]
         output_file: PathBuf,
 
-        #[arg(value_enum, short, long, help = "Output format", default_value_t=ConvertFormat::InvenioRDMNames)]
+        /// Output format
+        #[arg(short, long, value_enum, default_value_t=ConvertFormat::InvenioRDMNames)]
         format: ConvertFormat,
     },
 
     Extract {
-        #[arg(
-            short,
-            long,
-            required = true,
-            help = "Path to the ORCiD public data file"
-        )]
+        /// Path to the ORCiD public data file
+        #[arg(short, long)]
         input_file: PathBuf,
 
-        #[arg(
-            short,
-            long,
-            help = "Path to where to output the extracted file",
-            default_value = "-"
-        )]
+        /// Path to where to output the extracted file,
+        #[arg(short, long, default_value = "-")]
         output_file: PathBuf,
 
-        #[arg(value_enum, short, long, help = "Extract format", default_value_t=ExtractFormat::RINGGOLD)]
+        /// Extract format
+        #[arg(value_enum, short, long, default_value_t=ExtractFormat::RINGGOLD)]
         format: ExtractFormat,
     },
 }
 
-fn main() {
+fn main() -> Result<()> {
     let cli = Cli::parse();
 
     match &cli.command {
-        Some(Commands::Convert {
+        Commands::Convert {
             input_file,
             output_file,
             format,
-        }) => {
-            if output_file != Path::new("-") {
-                eprintln!("Can only output to stdout for now");
-                return;
-            }
-            match input_file.extension().and_then(OsStr::to_str) {
-                Some("xml") => convert_xml(input_file, format),
-                Some("gz") => convert_tgz(input_file, output_file, format),
-                _ => eprintln!("Unsupported file extension"),
-            };
-        }
-        Some(Commands::Extract {
+        } => match input_file.extension().and_then(OsStr::to_str) {
+            Some("xml") => convert_xml(input_file, output_file, format),
+            Some("gz") => convert_tgz(input_file, output_file, format),
+            _ => bail!("Unsupported file extension"),
+        },
+        Commands::Extract {
             input_file: _,
-            output_file,
+            output_file: _,
             format: _,
-        }) => {
-            if output_file != Path::new("-") {
-                eprintln!("Can only output to stdout for now");
-                return;
-            }
-        }
-        None => {}
+        } => Ok(()),
     }
 }
