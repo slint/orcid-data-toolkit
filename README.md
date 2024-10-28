@@ -1,6 +1,7 @@
 # ORCiD Data Toolkit
 
-A CLI tool to work with the [annual ORCiD Public Data file](https://info.orcid.org/documentation/integration-guide/working-with-bulk-data/).
+A CLI tool to work with the [annual ORCiD Public Data
+file](https://info.orcid.org/documentation/integration-guide/working-with-bulk-data/).
 
 ## Features
 
@@ -21,7 +22,8 @@ You can install the `orcid-data-toolkit` using `cargo`:
 cargo install orcid-data-toolkit
 ```
 
-Or download the binary from the [releases page](https://github.com/inveniosoftware/orcid-data-toolkit/releases).
+Or download the binary from the [releases
+page](https://github.com/inveniosoftware/orcid-data-toolkit/releases).
 
 > [!NOTE]
 > In the future we might also provide a PyPI package installable via `pipx` or
@@ -56,19 +58,28 @@ orcid-data-toolkit convert --format json --input-file samples/alex.xml
 
 ## Development
 
+To run tests locally, you can use the following command:
+
+```bash
+cargo test
+```
+
+### Working with the ORCiD Public Data Summaries file
+
 When working with the ORCiD Public Data Summary files, one might wish to extract
 individual files from the `.tar.gz.` file. Since `.tar.gz` does not support
-random access, you can either:
+efficient random access, you can either:
 
 - extract individual files using `tar -xzf <archive> <path-in-archive>`, which
   is slow since it has to go through the whole archive to find the file
-- extract the whole archive and then extract the individual file, which is
-  faster but requires more disk space
+- extract the whole archive and then access the individual file, which is faster
+  but requires more disk space
 
-A nice solution is to use [`ratarmount`](https://github.com/mxmlnkn/ratarmount),
-which allows you to mount the `.tar.gz` file as a FUSE filesystem and access the
-files as if they were extracted but without taking up disk space. You can do
-that like so:
+A better solution is to use
+[`ratarmount`](https://github.com/mxmlnkn/ratarmount), which allows you to mount
+the `.tar.gz` file as a FUSE filesystem and access the files as if they were in
+your filesystem but without all of them taking up disk space. You can do that
+like so:
 
 ```bash
 # Install ratarmount
