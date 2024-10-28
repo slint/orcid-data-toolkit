@@ -139,8 +139,11 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
         _employments
             .iter()
             .filter_map(|a| match a.employment.end {
+                // Past employment (i.e. end date is present)
                 Some(_) => None,
+                // Active employment (i.e. no end date)
                 None => {
+                    // Check for ROR ID
                     let ror_id = match &a.employment.organization.identifier {
                         Some(identifier) if identifier.source == "ROR" => Some(
                             identifier
@@ -170,10 +173,14 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
             given_names: None,
             family_name: Some(name),
         } => {
-            if name.trim().is_empty() {
+            if !name.trim().is_empty() {
                 (String::new(), name.clone(), name.clone())
             } else {
-                bail!("Can't determine person name")
+                bail!(
+                    "Can't determine person name from {:?}, {:?}",
+                    record.person.name.given_names,
+                    record.person.name.family_name,
+                )
             }
         }
 
@@ -189,7 +196,11 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
         PersonName {
             given_names: None,
             family_name: None,
-        } => bail!("Can't determine person name"),
+        } => bail!(
+            "Can't determine person name from {:?}, {:?}",
+            record.person.name.given_names,
+            record.person.name.family_name,
+        ),
     };
 
     Ok(NameJson {
@@ -252,9 +263,13 @@ fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertForm
     match format {
         ConvertFormat::JSON => {
             for r in records {
-                let json = record_to_json(&r)
-                    .with_context(|| format!("Error converting record to JSON"))?;
-                serde_json::to_writer(&mut out_stream, &json)
+                let json = record_to_json(&r);
+                // Log the error and continue to the next record
+                if let Err(e) = json {
+                    eprintln!("Error converting record to JSON: {}", e);
+                    continue;
+                }
+                serde_json::to_writer(&mut out_stream, &json.unwrap())
                     .with_context(|| format!("Error writing JSON"))?;
             }
         }
@@ -265,10 +280,13 @@ fn convert_tgz(input_file: &PathBuf, output_file: &PathBuf, format: &ConvertForm
 
             // Convert and write the records to CSV
             for r in records {
-                let row =
-                    record_to_row(&r).with_context(|| format!("Error converting record to CSV"))?;
+                let row = record_to_row(&r);
+                if let Err(e) = row {
+                    eprintln!("Error converting record to JSON: {}", e);
+                    continue;
+                }
                 writer
-                    .serialize(row)
+                    .serialize(row.unwrap())
                     .with_context(|| format!("Error writing CSV line"))?;
             }
         }
