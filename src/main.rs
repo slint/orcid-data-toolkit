@@ -1,5 +1,7 @@
 use anyhow::{bail, Result};
-use orcid_data_toolkit::{convert_tgz, convert_xml, ConvertFormat, ExtractFormat};
+use orcid_data_toolkit::{
+    convert_tgz, convert_xml, extract_tgz, extract_xml, ConvertFormat, ExtractFormat,
+};
 use std::{ffi::OsStr, path::PathBuf};
 
 use clap::{Parser, Subcommand};
@@ -37,7 +39,7 @@ enum Commands {
         output_file: PathBuf,
 
         /// Extract format
-        #[arg(value_enum, short, long, default_value_t=ExtractFormat::RINGGOLD)]
+        #[arg(value_enum, short, long, default_value_t=ExtractFormat::OrgIDs)]
         format: ExtractFormat,
     },
 }
@@ -56,9 +58,13 @@ fn main() -> Result<()> {
             _ => bail!("Unsupported file extension"),
         },
         Commands::Extract {
-            input_file: _,
-            output_file: _,
-            format: _,
-        } => Ok(()),
+            input_file,
+            output_file,
+            format,
+        } => match input_file.extension().and_then(OsStr::to_str) {
+            Some("xml") => extract_xml(input_file, output_file, format),
+            Some("gz") => extract_tgz(input_file, output_file, format),
+            _ => bail!("Unsupported file extension"),
+        },
     }
 }

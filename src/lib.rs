@@ -2,6 +2,7 @@ use anyhow::{bail, Context, Result};
 use chrono::Utc;
 use flate2::read::GzDecoder;
 use std::{
+    collections::HashSet,
     ffi::OsStr,
     fs::{self, File},
     io::{stdout, Read},
@@ -252,7 +253,7 @@ pub enum ConvertFormat {
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
 pub enum ExtractFormat {
-    RINGGOLD,
+    OrgIDs,
 }
 
 pub fn convert_tgz(
@@ -341,5 +342,100 @@ pub fn convert_xml(
                 .with_context(|| "Error writing JSON".to_string())?;
         }
     };
+    Ok(())
+}
+
+#[derive(Debug, Hash, Eq, PartialEq, serde::Serialize)]
+struct ExtractedIdentifier {
+    scheme: String,
+    identifier: String,
+}
+
+fn collect_org_ids(record: Record) -> HashSet<ExtractedIdentifier> {
+    record
+        .activities
+        .employments
+        .employment
+        .unwrap_or(Vec::new())
+        .iter()
+        .filter_map(|a| match &a.employment.organization.identifier {
+            Some(id) => Some(ExtractedIdentifier {
+                scheme: id.source.to_string(),
+                identifier: id.identifier.to_string(),
+            }),
+            _ => None,
+        })
+        .collect()
+}
+
+pub fn extract_xml(
+    input_file: &PathBuf,
+    output_file: &PathBuf,
+    format: &ExtractFormat,
+) -> Result<()> {
+    let xml = fs::read_to_string(input_file).expect("Failed to read XML file");
+    let rd = &mut Deserializer::from_str(&xml);
+    let record: Record = serde_path_to_error::deserialize(rd)
+        .with_context(|| "Error parsing XML content".to_string())?;
+
+    let mut out_stream = match output_file.to_str() {
+        Some("-") => Box::new(stdout()) as Box<dyn std::io::Write>,
+        _ => Box::new(
+            File::create(output_file)
+                .with_context(|| format!("Error opening file {}", input_file.display()))?,
+        ),
+    };
+
+    match format {
+        ExtractFormat::OrgIDs => {
+            let identifiers = collect_org_ids(record);
+            writeln!(
+                out_stream,
+                "{}",
+                serde_json::to_string_pretty(&identifiers)?
+            )
+            .with_context(|| "Error writing JSON".to_string())?;
+        }
+    }
+    Ok(())
+}
+
+pub fn extract_tgz(
+    input_file: &PathBuf,
+    output_file: &PathBuf,
+    format: &ExtractFormat,
+) -> Result<()> {
+    // Open the input .tar.gz
+    let file = File::open(input_file)
+        .with_context(|| format!("Error opening file {}", input_file.display()))?;
+    let mut archive = Archive::new(GzDecoder::new(file));
+    let records = iter_records(archive.entries().unwrap());
+
+    // Open the output CSV writer
+    let mut out_stream = match output_file.to_str() {
+        Some("-") => Box::new(stdout()) as Box<dyn std::io::Write>,
+        _ => Box::new(
+            File::create(output_file)
+                .with_context(|| format!("Error opening file {}", input_file.display()))?,
+        ),
+    };
+
+    match format {
+        ExtractFormat::OrgIDs => {
+            let mut identifiers = HashSet::<ExtractedIdentifier>::new();
+            for r in records {
+                let org_ids = collect_org_ids(r);
+                // Write the org IDs that are not already in the set
+                for i in &org_ids {
+                    if !identifiers.contains(i) {
+                        writeln!(out_stream, "{}", serde_json::to_string(i)?)
+                            .with_context(|| "Error writing JSON".to_string())?;
+                    }
+                }
+                identifiers.extend(org_ids);
+            }
+        }
+    }
+
     Ok(())
 }
