@@ -2,7 +2,7 @@ use anyhow::{bail, Context, Result};
 use chrono::Utc;
 use flate2::read::GzDecoder;
 use std::{
-    collections::HashSet,
+    collections::{HashMap, HashSet},
     ffi::OsStr,
     fs::{self, File},
     io::{stdout, Read},
@@ -120,12 +120,11 @@ struct Row {
     pid: String,
 }
 
-fn record_to_row(record: &Record) -> Result<Row> {
-    let now = Utc::now().to_rfc3339();
-    let name_json = record_to_json(record)?;
+fn record_to_row(record: &Record, org_map: &OrgMap, created_dt: &str) -> Result<Row> {
+    let name_json = record_to_json(record, org_map)?;
     Ok(Row {
-        created: String::from(now.as_str()),
-        updated: String::from(now.as_str()),
+        created: String::from(created_dt),
+        updated: String::from(created_dt),
         id: Uuid::new_v4().to_string(),
         pid: String::from(record.identifier.path.as_str()),
         version_id: 1,
@@ -133,7 +132,7 @@ fn record_to_row(record: &Record) -> Result<Row> {
     })
 }
 
-fn record_to_json(record: &Record) -> Result<NameJson> {
+fn record_to_json(record: &Record, org_map: &OrgMap) -> Result<NameJson> {
     let mut affiliations: Vec<NameAffiliation> = vec![];
     let employments = record.activities.employments.employment.as_ref();
     if let Some(_employments) = employments {
@@ -146,14 +145,30 @@ fn record_to_json(record: &Record) -> Result<NameJson> {
                 None => {
                     // Check for ROR ID
                     let ror_id = match &a.employment.organization.identifier {
-                        Some(identifier) if identifier.source == "ROR" => Some(
-                            identifier
-                                .identifier
-                                .as_str()
-                                .rsplit_once('/')?
-                                .1
-                                .to_string(),
-                        ),
+                        Some(identifier) if identifier.source == "ROR" => identifier
+                            .identifier
+                            .as_str()
+                            .rsplit_once('/')
+                            .map(|(_, id)| id.to_string()),
+                        // Check for ROR ID in the org_map
+                        Some(identifer) => {
+                            let normalized_id = match identifer.source.as_str() {
+                                // Keep last part of FUNDREF, similar to ROR
+                                "FUNDREF" => identifer
+                                    .identifier
+                                    .rsplit_once('/')
+                                    .map(|(_, id)| id.to_string()),
+                                _ => Some(identifer.identifier.clone()),
+                            };
+                            normalized_id.and_then(|id| {
+                                org_map
+                                    .get(&ExtractedIdentifier {
+                                        scheme: identifer.source.clone(),
+                                        identifier: id,
+                                    })
+                                    .cloned()
+                            })
+                        }
                         _ => None,
                     };
                     Some(NameAffiliation {
@@ -256,11 +271,15 @@ pub enum ExtractFormat {
     OrgIDs,
 }
 
+type OrgMap = HashMap<ExtractedIdentifier, String>;
+
 pub fn convert_tgz(
     input_file: &PathBuf,
     output_file: &PathBuf,
+    orgs_mappings_file: &Option<PathBuf>,
     format: &ConvertFormat,
 ) -> Result<()> {
+    let org_map = read_org_ids(orgs_mappings_file);
     // Open the input .tar.gz
     let file = File::open(input_file)
         .with_context(|| format!("Error opening file {}", input_file.display()))?;
@@ -279,7 +298,7 @@ pub fn convert_tgz(
     match format {
         ConvertFormat::JSON => {
             for r in records {
-                let json = record_to_json(&r);
+                let json = record_to_json(&r, &org_map);
                 // Log the error and continue to the next record
                 if let Err(e) = json {
                     eprintln!("Error converting record to JSON: {}", e);
@@ -293,10 +312,11 @@ pub fn convert_tgz(
             let mut writer = csv::WriterBuilder::new()
                 .has_headers(false)
                 .from_writer(out_stream);
+            let now = Utc::now().to_rfc3339();
 
             // Convert and write the records to CSV
             for r in records {
-                let row = record_to_row(&r);
+                let row = record_to_row(&r, &org_map, &now);
                 if let Err(e) = row {
                     eprintln!("Error converting record to JSON: {}", e);
                     continue;
@@ -313,8 +333,10 @@ pub fn convert_tgz(
 pub fn convert_xml(
     input_file: &PathBuf,
     output_file: &PathBuf,
+    orgs_mappings_file: &Option<PathBuf>,
     format: &ConvertFormat,
 ) -> Result<()> {
+    let org_map = read_org_ids(orgs_mappings_file);
     let xml = fs::read_to_string(input_file).expect("Failed to read XML file");
     let rd = &mut Deserializer::from_str(&xml);
     let record = serde_path_to_error::deserialize(rd)
@@ -330,19 +352,37 @@ pub fn convert_xml(
 
     match format {
         ConvertFormat::InvenioRDMNames => {
-            let row = record_to_row(&record).expect("Failed to convert to CSV");
+            let now = Utc::now().to_rfc3339();
+            let row = record_to_row(&record, &org_map, &now).expect("Failed to convert to CSV");
             let mut writer = csv::WriterBuilder::new()
                 .has_headers(false)
                 .from_writer(out_stream);
             writer.serialize(row).unwrap()
         }
         ConvertFormat::JSON => {
-            let json = record_to_json(&record).expect("Failed to convert to JSON");
+            let json = record_to_json(&record, &org_map).expect("Failed to convert to JSON");
             serde_json::to_writer_pretty(&mut out_stream, &json)
                 .with_context(|| "Error writing JSON".to_string())?;
         }
     };
     Ok(())
+}
+
+fn read_org_ids(orgs_mappings_file: &Option<PathBuf>) -> OrgMap {
+    let mut org_map = OrgMap::new();
+    if let Some(orgs_mappings_file) = orgs_mappings_file {
+        if let Ok(file) = File::open(orgs_mappings_file) {
+            let mut reader = csv::ReaderBuilder::new()
+                .has_headers(false)
+                .from_reader(file);
+            for result in reader.deserialize() {
+                let (scheme, identifier, ror_id): (String, String, String) =
+                    result.expect("Failed to parse org IDs file");
+                org_map.insert(ExtractedIdentifier { scheme, identifier }, ror_id);
+            }
+        }
+    }
+    org_map
 }
 
 #[derive(Debug, Hash, Eq, PartialEq, serde::Serialize)]
@@ -356,14 +396,17 @@ fn collect_org_ids(record: Record) -> HashSet<ExtractedIdentifier> {
         .activities
         .employments
         .employment
-        .unwrap_or(Vec::new())
+        .unwrap_or_default()
         .iter()
-        .filter_map(|a| match &a.employment.organization.identifier {
-            Some(id) => Some(ExtractedIdentifier {
-                scheme: id.source.to_string(),
-                identifier: id.identifier.to_string(),
-            }),
-            _ => None,
+        .filter_map(|a| {
+            a.employment
+                .organization
+                .identifier
+                .as_ref()
+                .map(|id| ExtractedIdentifier {
+                    scheme: id.source.to_string(),
+                    identifier: id.identifier.to_string(),
+                })
         })
         .collect()
 }

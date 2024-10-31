@@ -27,6 +27,10 @@ enum Commands {
         /// Output format
         #[arg(short, long, value_enum, default_value_t=ConvertFormat::InvenioRDMNames)]
         format: ConvertFormat,
+
+        /// Path to Organization ID CSV mappings file
+        #[arg(long = "orgs-mapping")]
+        orgs_mappings_file: Option<PathBuf>,
     },
 
     Extract {
@@ -51,10 +55,11 @@ fn main() -> Result<()> {
         Commands::Convert {
             input_file,
             output_file,
+            orgs_mappings_file,
             format,
         } => match input_file.extension().and_then(OsStr::to_str) {
-            Some("xml") => convert_xml(input_file, output_file, format),
-            Some("gz") => convert_tgz(input_file, output_file, format),
+            Some("xml") => convert_xml(input_file, output_file, orgs_mappings_file, format),
+            Some("gz") => convert_tgz(input_file, output_file, orgs_mappings_file, format),
             _ => bail!("Unsupported file extension"),
         },
         Commands::Extract {

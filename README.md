@@ -9,9 +9,9 @@ file](https://info.orcid.org/documentation/integration-guide/working-with-bulk-d
   - [x] [InvenioRDM Names](https://inveniordm.docs.cern.ch/customize/vocabularies/names/), ready
     for import in a `names_metadata` PostgreSQL table via `COPY`
   - [ ] CSV
-  - [ ] NDJSON
-- [ ] Enhance the converted files from other sources
-  - [ ] Translate employment affiliations to ROR IDs
+  - [x] NDJSON
+- [x] Enhance the converted files from other sources
+  - [x] Translate employment affiliations to ROR IDs
 - [ ] Download ORCiD Public Data files
 
 ## Installation
