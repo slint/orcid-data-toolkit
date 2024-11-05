@@ -181,6 +181,7 @@ fn record_to_json(record: &Record, org_map: &OrgMap) -> Result<NameJson> {
     }
 
     let (given_name, family_name, name) = match &record.person.name {
+        // If either value is present, use it
         PersonName {
             given_names: Some(name),
             family_name: None,
@@ -188,35 +189,18 @@ fn record_to_json(record: &Record, org_map: &OrgMap) -> Result<NameJson> {
         | PersonName {
             given_names: None,
             family_name: Some(name),
-        } => {
-            if !name.trim().is_empty() {
-                (String::new(), name.clone(), name.clone())
-            } else {
-                bail!(
-                    "Can't determine person name from {:?}, {:?}",
-                    record.person.name.given_names,
-                    record.person.name.family_name,
-                )
-            }
-        }
+        } if !name.trim().is_empty() => (String::new(), name.clone(), name.clone()),
 
         // If both values are present, combine them
         PersonName {
             given_names: Some(given_names),
             family_name: Some(family_name),
-        } => (
+        } if !given_names.trim().is_empty() && !family_name.trim().is_empty() => (
             given_names.clone(),
             family_name.clone(),
             format!("{}, {}", family_name, given_names),
         ),
-        PersonName {
-            given_names: None,
-            family_name: None,
-        } => bail!(
-            "Can't determine person name from {:?}, {:?}",
-            record.person.name.given_names,
-            record.person.name.family_name,
-        ),
+        _ => bail!("Can't determine person name from {:?}", record.person.name,),
     };
 
     Ok(NameJson {
