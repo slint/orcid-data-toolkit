@@ -1,6 +1,7 @@
 use anyhow::{bail, Context, Result};
 use chrono::Utc;
-use flate2::read::GzDecoder;
+use uuid::Uuid;
+
 use std::{
     collections::{HashMap, HashSet},
     ffi::OsStr,
@@ -8,9 +9,12 @@ use std::{
     io::{stdout, Read},
     path::PathBuf,
 };
+
+use flate2::read::GzDecoder;
 use tar::Archive;
 
-use uuid::Uuid;
+use regex::Regex;
+use unicode_normalization::UnicodeNormalization;
 
 use quick_xml::de::Deserializer;
 use serde::Deserialize;
@@ -120,8 +124,22 @@ struct Row {
     pid: String,
 }
 
-fn record_to_row(record: &Record, org_map: &OrgMap, created_dt: &str) -> Result<Row> {
+fn record_to_row(
+    record: &Record,
+    org_map: &OrgMap,
+    created_dt: &str,
+    name_filter: &Option<Regex>,
+) -> Result<Row> {
     let name_json = record_to_json(record, org_map)?;
+    if let Some(ref re) = name_filter {
+        if !re.is_match(&name_json.name) {
+            bail!(
+                "Name {:?} filtered out from {:?}",
+                name_json.name,
+                record.identifier.path,
+            )
+        }
+    }
     Ok(Row {
         created: String::from(created_dt),
         updated: String::from(created_dt),
@@ -172,7 +190,7 @@ fn record_to_json(record: &Record, org_map: &OrgMap) -> Result<NameJson> {
                         _ => None,
                     };
                     Some(NameAffiliation {
-                        name: a.employment.organization.name.clone(),
+                        name: a.employment.organization.name.nfc().to_string(),
                         id: ror_id,
                     })
                 }
@@ -204,9 +222,9 @@ fn record_to_json(record: &Record, org_map: &OrgMap) -> Result<NameJson> {
     };
 
     Ok(NameJson {
-        given_name,
-        family_name,
-        name,
+        given_name: given_name.nfc().to_string(),
+        family_name: family_name.nfc().to_string(),
+        name: name.nfc().to_string(),
         identifiers: vec![NameIdentifier {
             scheme: "orcid".to_string(),
             identifier: record.identifier.path.clone(),
@@ -261,9 +279,11 @@ pub fn convert_tgz(
     input_file: &PathBuf,
     output_file: &PathBuf,
     orgs_mappings_file: &Option<PathBuf>,
+    filter_name: &Option<String>,
     format: &ConvertFormat,
 ) -> Result<()> {
     let org_map = read_org_ids(orgs_mappings_file);
+
     // Open the input .tar.gz
     let file = File::open(input_file)
         .with_context(|| format!("Error opening file {}", input_file.display()))?;
@@ -279,6 +299,11 @@ pub fn convert_tgz(
         ),
     };
 
+    let name_filter_re = match filter_name {
+        Some(re) => Regex::new(re.as_ref()).ok(),
+        _ => None,
+    };
+
     match format {
         ConvertFormat::JSON => {
             for r in records {
@@ -288,7 +313,14 @@ pub fn convert_tgz(
                     eprintln!("Error converting record to JSON: {}", e);
                     continue;
                 }
-                serde_json::to_writer(&mut out_stream, &json.unwrap())
+                let json = json.unwrap();
+                if let Some(ref re) = name_filter_re {
+                    if !re.is_match(&json.name) {
+                        continue;
+                    }
+                };
+
+                serde_json::to_writer(&mut out_stream, &json)
                     .with_context(|| "Error writing JSON".to_string())?;
             }
         }
@@ -300,7 +332,7 @@ pub fn convert_tgz(
 
             // Convert and write the records to CSV
             for r in records {
-                let row = record_to_row(&r, &org_map, &now);
+                let row = record_to_row(&r, &org_map, &now, &name_filter_re);
                 if let Err(e) = row {
                     eprintln!("Error converting record to JSON: {}", e);
                     continue;
@@ -337,7 +369,8 @@ pub fn convert_xml(
     match format {
         ConvertFormat::InvenioRDMNames => {
             let now = Utc::now().to_rfc3339();
-            let row = record_to_row(&record, &org_map, &now).expect("Failed to convert to CSV");
+            let row =
+                record_to_row(&record, &org_map, &now, &None).expect("Failed to convert to CSV");
             let mut writer = csv::WriterBuilder::new()
                 .has_headers(false)
                 .from_writer(out_stream);

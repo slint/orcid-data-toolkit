@@ -13,6 +13,8 @@ struct Cli {
     command: Commands,
 }
 
+const DEFAULT_NAME_FILTER_REGEX: &str = r"^[\p{L} ,.'’`´\-\(\)]+$";
+
 #[derive(Subcommand)]
 enum Commands {
     Convert {
@@ -31,6 +33,9 @@ enum Commands {
         /// Path to Organization ID CSV mappings file
         #[arg(long = "orgs-mapping")]
         orgs_mappings_file: Option<PathBuf>,
+
+        #[arg(long = "filter-name", default_value=DEFAULT_NAME_FILTER_REGEX)]
+        filter_name: Option<String>,
     },
 
     Extract {
@@ -56,10 +61,17 @@ fn main() -> Result<()> {
             input_file,
             output_file,
             orgs_mappings_file,
+            filter_name,
             format,
         } => match input_file.extension().and_then(OsStr::to_str) {
             Some("xml") => convert_xml(input_file, output_file, orgs_mappings_file, format),
-            Some("gz") => convert_tgz(input_file, output_file, orgs_mappings_file, format),
+            Some("gz") => convert_tgz(
+                input_file,
+                output_file,
+                orgs_mappings_file,
+                filter_name,
+                format,
+            ),
             _ => bail!("Unsupported file extension"),
         },
         Commands::Extract {
