@@ -198,6 +198,26 @@ fn record_to_json(record: &Record, org_map: &OrgMap) -> Result<NameJson> {
             .for_each(|n| affiliations.push(n));
     }
 
+    // Deduplicate affiliations by their `id`
+    let mut seen_ids = HashSet::new();
+    affiliations.retain(|affiliation| {
+        if let Some(id) = &affiliation.id {
+            seen_ids.insert(id.clone())
+        } else {
+            true
+        }
+    });
+
+    // Deduplicate affiliations by their `name` if the `id` is not present
+    let mut seen_names = HashSet::new();
+    affiliations.retain(|affiliation| {
+        if affiliation.id.is_some() {
+            true
+        } else {
+            seen_names.insert(affiliation.name.clone())
+        }
+    });
+
     let (given_name, family_name, name) = match &record.person.name {
         // If either value is present, use it
         PersonName {
