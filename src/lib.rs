@@ -8,9 +8,13 @@ use std::{
     fs::{self, File},
     io::{stdout, Read},
     path::PathBuf,
+    sync::Mutex,
+    thread,
 };
 
+use crossbeam_channel::{bounded, Sender};
 use flate2::read::GzDecoder;
+use rayon::prelude::*;
 use tar::Archive;
 
 use regex::Regex;
@@ -267,19 +271,40 @@ fn iter_records<R: Read>(entries: tar::Entries<'_, R>) -> impl Iterator<Item = R
         .filter_map(|mut entry| -> Option<Record> {
             let mut xml_content = String::new();
             entry.read_to_string(&mut xml_content).ok()?;
-            let rd = &mut Deserializer::from_str(&xml_content);
-            match serde_path_to_error::deserialize(rd) {
-                Ok(record) => Some(record),
-                Err(err) => {
-                    eprintln!(
-                        "Error parsing XML content for {}: {}",
-                        entry.path().unwrap().display(),
-                        err.path()
-                    );
-                    None
-                }
-            }
+            parse_xml(&xml_content)
         })
+}
+
+/// Parse XML string into a Record, logging errors
+fn parse_xml(xml_content: &str) -> Option<Record> {
+    let rd = &mut Deserializer::from_str(xml_content);
+    match serde_path_to_error::deserialize(rd) {
+        Ok(record) => Some(record),
+        Err(err) => {
+            eprintln!("Error parsing XML: {}", err.path());
+            None
+        }
+    }
+}
+
+/// Read tar entries sequentially and send XML strings to channel
+fn read_tar_entries_to_channel<R: Read>(entries: tar::Entries<'_, R>, tx: Sender<String>) {
+    for entry_result in entries {
+        let Ok(mut entry) = entry_result else {
+            continue;
+        };
+        let Ok(path) = entry.path() else { continue };
+        if path.extension().and_then(OsStr::to_str) != Some("xml") {
+            continue;
+        }
+        let mut xml_content = String::new();
+        if entry.read_to_string(&mut xml_content).is_ok() {
+            // If receiver is dropped, stop reading
+            if tx.send(xml_content).is_err() {
+                break;
+            }
+        }
+    }
 }
 
 #[derive(Copy, Clone, PartialEq, Eq, PartialOrd, Ord, ValueEnum)]
@@ -295,6 +320,9 @@ pub enum ExtractFormat {
 
 type OrgMap = HashMap<ExtractedIdentifier, String>;
 
+/// Channel buffer size for backpressure (number of XML strings to buffer)
+const CHANNEL_BUFFER_SIZE: usize = 1024;
+
 pub fn convert_tgz(
     input_file: &PathBuf,
     output_file: &PathBuf,
@@ -304,15 +332,9 @@ pub fn convert_tgz(
 ) -> Result<()> {
     let org_map = read_org_ids(orgs_mappings_file);
 
-    // Open the input .tar.gz
-    let file = File::open(input_file)
-        .with_context(|| format!("Error opening file {}", input_file.display()))?;
-    let mut archive = Archive::new(GzDecoder::new(file));
-    let records = iter_records(archive.entries().unwrap());
-
-    // Open the output CSV writer
-    let mut out_stream = match output_file.to_str() {
-        Some("-") => Box::new(stdout()) as Box<dyn std::io::Write>,
+    // Open the output stream
+    let out_stream: Box<dyn std::io::Write + Send> = match output_file.to_str() {
+        Some("-") => Box::new(stdout()),
         _ => Box::new(
             File::create(output_file)
                 .with_context(|| format!("Error opening file {}", input_file.display()))?,
@@ -324,45 +346,75 @@ pub fn convert_tgz(
         _ => None,
     };
 
+    // Create channel for producer-consumer pattern
+    let (tx, rx) = bounded::<String>(CHANNEL_BUFFER_SIZE);
+
+    // Spawn producer thread to read tar entries sequentially
+    // The file and archive must be owned by this thread
+    let input_path = input_file.clone();
+    let producer = thread::spawn(move || {
+        let file = File::open(&input_path).expect("Failed to open input file");
+        let mut archive = Archive::new(GzDecoder::new(file));
+        let entries = archive.entries().expect("Failed to read tar entries");
+        read_tar_entries_to_channel(entries, tx);
+    });
+
+    // Process records in parallel
     match format {
         ConvertFormat::JSON => {
-            for r in records {
-                let json = record_to_json(&r, &org_map);
-                // Log the error and continue to the next record
-                if let Err(e) = json {
-                    eprintln!("Error converting record to JSON: {}", e);
-                    continue;
-                }
-                let json = json.unwrap();
-                if let Some(ref re) = name_filter_re {
-                    if !re.is_match(&json.name) {
-                        continue;
+            let out_stream = Mutex::new(out_stream);
+            rx.into_iter()
+                .par_bridge()
+                .filter_map(|xml| parse_xml(&xml))
+                .for_each(|record| {
+                    let json = match record_to_json(&record, &org_map) {
+                        Ok(j) => j,
+                        Err(e) => {
+                            eprintln!("Error converting record to JSON: {}", e);
+                            return;
+                        }
+                    };
+                    if let Some(ref re) = name_filter_re {
+                        if !re.is_match(&json.name) {
+                            return;
+                        }
                     }
-                };
-
-                serde_json::to_writer(&mut out_stream, &json)
-                    .with_context(|| "Error writing JSON".to_string())?;
-            }
+                    let mut stream = out_stream.lock().unwrap();
+                    if let Err(e) = serde_json::to_writer(&mut *stream, &json) {
+                        eprintln!("Error writing JSON: {}", e);
+                    }
+                });
         }
         ConvertFormat::InvenioRDMNames => {
-            let mut writer = csv::WriterBuilder::new()
-                .has_headers(false)
-                .from_writer(out_stream);
+            let writer = Mutex::new(
+                csv::WriterBuilder::new()
+                    .has_headers(false)
+                    .from_writer(out_stream),
+            );
             let now = Utc::now().to_rfc3339();
 
-            // Convert and write the records to CSV
-            for r in records {
-                let row = record_to_row(&r, &org_map, &now, &name_filter_re);
-                if let Err(e) = row {
-                    eprintln!("Error converting record to JSON: {}", e);
-                    continue;
-                }
-                writer
-                    .serialize(row.unwrap())
-                    .with_context(|| "Error writing CSV line".to_string())?;
-            }
+            rx.into_iter()
+                .par_bridge()
+                .filter_map(|xml| parse_xml(&xml))
+                .for_each(|record| {
+                    let row = match record_to_row(&record, &org_map, &now, &name_filter_re) {
+                        Ok(r) => r,
+                        Err(e) => {
+                            eprintln!("Error converting record to row: {}", e);
+                            return;
+                        }
+                    };
+                    let mut w = writer.lock().unwrap();
+                    if let Err(e) = w.serialize(&row) {
+                        eprintln!("Error writing CSV line: {}", e);
+                    }
+                });
         }
     };
+
+    // Wait for producer to finish
+    producer.join().expect("Producer thread panicked");
+
     Ok(())
 }
 
