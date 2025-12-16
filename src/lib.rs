@@ -6,7 +6,7 @@ use std::{
     collections::{HashMap, HashSet},
     ffi::OsStr,
     fs::{self, File},
-    io::{stdout, Read},
+    io::{stdout, BufWriter, Read, Write},
     path::PathBuf,
     sync::Mutex,
     thread,
@@ -320,7 +320,7 @@ pub enum ExtractFormat {
 
 type OrgMap = HashMap<ExtractedIdentifier, String>;
 
-/// Channel buffer size for backpressure (number of XML strings to buffer)
+/// Channel buffer size for backpressure
 const CHANNEL_BUFFER_SIZE: usize = 1024;
 
 pub fn convert_tgz(
@@ -332,13 +332,13 @@ pub fn convert_tgz(
 ) -> Result<()> {
     let org_map = read_org_ids(orgs_mappings_file);
 
-    // Open the output stream
+    // Open the output stream with buffering
     let out_stream: Box<dyn std::io::Write + Send> = match output_file.to_str() {
-        Some("-") => Box::new(stdout()),
-        _ => Box::new(
+        Some("-") => Box::new(BufWriter::new(stdout())),
+        _ => Box::new(BufWriter::new(
             File::create(output_file)
                 .with_context(|| format!("Error opening file {}", input_file.display()))?,
-        ),
+        )),
     };
 
     let name_filter_re = match filter_name {
@@ -350,7 +350,6 @@ pub fn convert_tgz(
     let (tx, rx) = bounded::<String>(CHANNEL_BUFFER_SIZE);
 
     // Spawn producer thread to read tar entries sequentially
-    // The file and archive must be owned by this thread
     let input_path = input_file.clone();
     let producer = thread::spawn(move || {
         let file = File::open(&input_path).expect("Failed to open input file");
