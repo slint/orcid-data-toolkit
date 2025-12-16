@@ -29,7 +29,12 @@ uuid = { version = "1.4.1", features = ["fast-rng", "v4", "serde"] }
 
 [dev-dependencies]
 assert_cmd = "2.0.16"
+criterion = "0.5"
 predicates = "3.1.2"
+
+[[bench]]
+name = "tgz_processing"
+harness = false
 
 # The profile that 'dist' will build with
 [profile.dist]
