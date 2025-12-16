@@ -86,12 +86,12 @@ struct Record {
     _activities: Activities,
 }
 
-/// Find test TGZ file, preferring larger files for more accurate benchmarks.
+/// Find test TGZ file. Uses the committed fixture by default for reproducibility.
 fn find_test_tgz() -> Option<std::path::PathBuf> {
     let candidates = [
-        "var/summaries-2025-large.tar.gz",   // ~320MB, best for benchmarks
+        "tests/data/bench-fixture.tar.gz", // ~10MB, committed fixture for CI
+        "var/summaries-2025-large.tar.gz", // ~320MB, for thorough local testing
         "var/summaries-2025-partial.tar.gz", // ~26MB
-        "var/summaries-2025.tar.gz",         // full file if available
     ];
 
     for candidate in candidates {
