@@ -320,8 +320,8 @@ pub enum ExtractFormat {
 
 type OrgMap = HashMap<ExtractedIdentifier, String>;
 
-/// Channel buffer size for backpressure
-const CHANNEL_BUFFER_SIZE: usize = 1024;
+/// Batch size for processing - larger = less synchronization overhead
+const BATCH_SIZE: usize = 256;
 
 pub fn convert_tgz(
     input_file: &PathBuf,
@@ -333,7 +333,7 @@ pub fn convert_tgz(
     let org_map = read_org_ids(orgs_mappings_file);
 
     // Open the output stream with buffering
-    let out_stream: Box<dyn std::io::Write + Send> = match output_file.to_str() {
+    let mut out_stream: Box<dyn std::io::Write + Send> = match output_file.to_str() {
         Some("-") => Box::new(BufWriter::new(stdout())),
         _ => Box::new(BufWriter::new(
             File::create(output_file)
@@ -346,68 +346,80 @@ pub fn convert_tgz(
         _ => None,
     };
 
-    // Create channel for producer-consumer pattern
-    let (tx, rx) = bounded::<String>(CHANNEL_BUFFER_SIZE);
+    // Channel sends batches instead of individual items
+    let (tx, rx) = bounded::<Vec<String>>(8);
 
-    // Spawn producer thread to read tar entries sequentially
+    // Spawn producer thread to read tar entries and batch them
     let input_path = input_file.clone();
     let producer = thread::spawn(move || {
         let file = File::open(&input_path).expect("Failed to open input file");
         let mut archive = Archive::new(GzDecoder::new(file));
         let entries = archive.entries().expect("Failed to read tar entries");
-        read_tar_entries_to_channel(entries, tx);
+
+        let mut batch = Vec::with_capacity(BATCH_SIZE);
+        for entry_result in entries {
+            let Ok(mut entry) = entry_result else { continue };
+            let Ok(path) = entry.path() else { continue };
+            if path.extension().and_then(OsStr::to_str) != Some("xml") {
+                continue;
+            }
+            let mut xml_content = String::new();
+            if entry.read_to_string(&mut xml_content).is_ok() {
+                batch.push(xml_content);
+                if batch.len() >= BATCH_SIZE {
+                    if tx.send(std::mem::take(&mut batch)).is_err() {
+                        break;
+                    }
+                    batch = Vec::with_capacity(BATCH_SIZE);
+                }
+            }
+        }
+        // Send remaining items
+        if !batch.is_empty() {
+            let _ = tx.send(batch);
+        }
     });
 
-    // Process records in parallel
+    // Process batches - use par_iter on each batch (no par_bridge!)
     match format {
         ConvertFormat::JSON => {
-            let out_stream = Mutex::new(out_stream);
-            rx.into_iter()
-                .par_bridge()
-                .filter_map(|xml| parse_xml(&xml))
-                .for_each(|record| {
-                    let json = match record_to_json(&record, &org_map) {
-                        Ok(j) => j,
-                        Err(e) => {
-                            eprintln!("Error converting record to JSON: {}", e);
-                            return;
+            for batch in rx {
+                let results: Vec<_> = batch
+                    .par_iter()
+                    .filter_map(|xml| parse_xml(xml))
+                    .filter_map(|record| {
+                        let json = record_to_json(&record, &org_map).ok()?;
+                        if let Some(ref re) = name_filter_re {
+                            if !re.is_match(&json.name) {
+                                return None;
+                            }
                         }
-                    };
-                    if let Some(ref re) = name_filter_re {
-                        if !re.is_match(&json.name) {
-                            return;
-                        }
-                    }
-                    let mut stream = out_stream.lock().unwrap();
-                    if let Err(e) = serde_json::to_writer(&mut *stream, &json) {
-                        eprintln!("Error writing JSON: {}", e);
-                    }
-                });
+                        serde_json::to_vec(&json).ok()
+                    })
+                    .collect();
+                for bytes in results {
+                    out_stream.write_all(&bytes)?;
+                }
+            }
         }
         ConvertFormat::InvenioRDMNames => {
-            let writer = Mutex::new(
-                csv::WriterBuilder::new()
-                    .has_headers(false)
-                    .from_writer(out_stream),
-            );
             let now = Utc::now().to_rfc3339();
+            let mut csv_writer = csv::WriterBuilder::new()
+                .has_headers(false)
+                .from_writer(&mut out_stream);
 
-            rx.into_iter()
-                .par_bridge()
-                .filter_map(|xml| parse_xml(&xml))
-                .for_each(|record| {
-                    let row = match record_to_row(&record, &org_map, &now, &name_filter_re) {
-                        Ok(r) => r,
-                        Err(e) => {
-                            eprintln!("Error converting record to row: {}", e);
-                            return;
-                        }
-                    };
-                    let mut w = writer.lock().unwrap();
-                    if let Err(e) = w.serialize(&row) {
-                        eprintln!("Error writing CSV line: {}", e);
-                    }
-                });
+            for batch in rx {
+                let results: Vec<_> = batch
+                    .par_iter()
+                    .filter_map(|xml| parse_xml(xml))
+                    .filter_map(|record| {
+                        record_to_row(&record, &org_map, &now, &name_filter_re).ok()
+                    })
+                    .collect();
+                for row in results {
+                    csv_writer.serialize(&row)?;
+                }
+            }
         }
     };
 
