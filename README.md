@@ -64,6 +64,19 @@ To run tests locally, you can use the following command:
 cargo test
 ```
 
+To run benchmarks:
+
+```bash
+cargo bench
+```
+
+### Test Data
+
+The test fixtures in `tests/data/` contain real records from the [ORCID Public
+Data File](https://info.orcid.org/documentation/integration-guide/working-with-bulk-data/),
+which is released under the [CC0 1.0 Public Domain Dedication](https://creativecommons.org/publicdomain/zero/1.0/).
+This data is already publicly available and published by ORCID annually.
+
 ### Working with the ORCiD Public Data Summaries file
 
 When working with the ORCiD Public Data Summary files, one might wish to extract
