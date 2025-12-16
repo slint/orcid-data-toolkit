@@ -1,0 +1,4 @@
+[build]
+# Enable native CPU optimizations for better SIMD performance (zlib-rs, memchr)
+# Note: binaries won't be portable to older CPUs
+rustflags = ["-Ctarget-cpu=native"]
